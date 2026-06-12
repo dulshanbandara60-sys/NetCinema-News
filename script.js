@@ -534,7 +534,23 @@ async function initArticlePage() {
 
     // Content
     // Assuming content is HTML (from Quill)
-    document.getElementById('article-content').innerHTML = article.content;
+    const contentEl = document.getElementById('article-content');
+    contentEl.innerHTML = article.content;
+    
+    // Auto-fix timeline tables with empty trailing headers
+    contentEl.querySelectorAll('table thead tr').forEach(tr => {
+        const ths = tr.querySelectorAll('th');
+        let emptyCount = 0;
+        for(let i=1; i<ths.length; i++) {
+            if(!ths[i].textContent.trim()) emptyCount++;
+        }
+        if(emptyCount === ths.length - 1 && ths.length > 1) {
+            ths[0].setAttribute('colspan', ths.length);
+            for(let i=1; i<ths.length; i++) {
+                ths[i].remove();
+            }
+        }
+    });
 
     // Load dynamic Movie News widget
     const movieNewsContainer = document.getElementById('dynamic-article-movie-news');

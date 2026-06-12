@@ -137,7 +137,22 @@ if (editorContent) {
                 const plain = e.clipboardData.getData('text/plain');
                 if (window.marked) {
                     const parsed = marked.parse(plain);
-                    document.execCommand('insertHTML', false, sanitizeHTML(parsed));
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = parsed;
+                    tempDiv.querySelectorAll('table thead tr').forEach(tr => {
+                        const ths = tr.querySelectorAll('th');
+                        let emptyCount = 0;
+                        for(let i=1; i<ths.length; i++) {
+                            if(!ths[i].textContent.trim()) emptyCount++;
+                        }
+                        if(emptyCount === ths.length - 1 && ths.length > 1) {
+                            ths[0].setAttribute('colspan', ths.length);
+                            for(let i=1; i<ths.length; i++) {
+                                ths[i].remove();
+                            }
+                        }
+                    });
+                    document.execCommand('insertHTML', false, sanitizeHTML(tempDiv.innerHTML));
                 } else {
                     const wrapped = plain.split('\n').map(l => l.trim() ? `<p>${escapeHTML(l)}</p>` : '').join('');
                     document.execCommand('insertHTML', false, wrapped || plain);
