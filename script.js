@@ -199,21 +199,24 @@ async function initHomePage() {
     // Load category previews for the bottom section
     initHomeCategoryReviews();
 
-    // Load Lower Sections (Movie News, Exclusive Stories, Celebs)
-    const movieNewsArticles = await fetchArticlesByCategory('movie-news', 5);
+    // Load Lower Sections (Movie News, Exclusive Stories, Celebs) in parallel
+    const [movieNewsArticles, topStoriesArticles, celebsArticles, trailers] = await Promise.all([
+        fetchArticlesByCategory('movie-news', 5),
+        fetchArticlesByCategory('top-stories', 5),
+        fetchArticlesByCategory('celebs', 5),
+        fetchTrailers()
+    ]);
+
     const mnContainer = document.getElementById('dynamic-movie-news');
     if (mnContainer) mnContainer.innerHTML = movieNewsArticles.length > 0 ? movieNewsArticles.map(renderExclusiveCard).join('') : '<p style="color:#a0a5b1;">No movie news yet.</p>';
 
-    const topStoriesArticles = await fetchArticlesByCategory('top-stories', 5);
     const tsContainer = document.getElementById('dynamic-exclusive-stories');
     if (tsContainer) tsContainer.innerHTML = topStoriesArticles.length > 0 ? topStoriesArticles.map(renderExclusiveCard).join('') : '<p style="color:#a0a5b1;">No exclusive stories yet.</p>';
 
-    const celebsArticles = await fetchArticlesByCategory('celebs', 5);
     const celebsContainer = document.getElementById('dynamic-celebs');
     if (celebsContainer) celebsContainer.innerHTML = celebsArticles.length > 0 ? celebsArticles.map(renderExclusiveCard).join('') : '<p style="color:#a0a5b1;">No celeb news yet.</p>';
 
     // Load Trailers for Home
-    const trailers = await fetchTrailers();
     const trailersContainer = document.getElementById('dynamic-home-trailers');
     if (trailersContainer) {
         if (trailers.length > 0) {
@@ -239,10 +242,15 @@ async function initHomePage() {
 }
 
 async function initHomeCategoryReviews() {
+    // Fetch both simultaneously to save time
+    const [mReviews, tvReviews] = await Promise.all([
+        fetchArticlesByCategory('movie-reviews', 4),
+        fetchArticlesByCategory('tv-reviews', 3)
+    ]);
+
     // Movie Reviews - 4-post Slider
     const movieSlider = document.getElementById('dynamic-movie-reviews');
     if (movieSlider) {
-        const mReviews = await fetchArticlesByCategory('movie-reviews', 4);
         if (mReviews.length > 0) {
             let currentSlide = 0;
 
@@ -294,14 +302,15 @@ async function initHomeCategoryReviews() {
                 movieSlider.innerHTML = renderSlide(currentSlide);
                 setupButtons();
             }, 5000);
+        } else {
+            movieSlider.innerHTML = '<p style="color:#a0a5b1; padding:20px;">No movie reviews yet.</p>';
         }
     }
 
     // TV Reviews
     const tvList = document.getElementById('dynamic-tv-reviews');
     if (tvList) {
-        const tvReviews = await fetchArticlesByCategory('tv-reviews', 3);
-        tvList.innerHTML = tvReviews.map(rev => {
+        tvList.innerHTML = tvReviews.length > 0 ? tvReviews.map(rev => {
             const img = rev.cover_image || FALLBACK_IMAGE;
             return `
                 <article class="review-item" onclick="window.location.href='article.html?slug=${rev.slug}'" style="cursor:pointer;">
@@ -311,7 +320,7 @@ async function initHomeCategoryReviews() {
                     </div>
                 </article>
             `;
-        }).join('');
+        }).join('') : '<p style="color:#a0a5b1; padding:20px;">No TV reviews yet.</p>';
     }
 }
 
