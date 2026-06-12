@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - NetCinema</title>
+    <!-- Include admin specific styling -->
+    <link rel="stylesheet" href="admin.css">
+    <!-- FontAwesome for icons (optional, using inline SVG for now for simplicity, but let's use some nice icons) -->
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <h2>NetCinema<span>Admin</span></h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-target="dashboard-view">
+                        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                        Dashboard
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-target="add-post-view">
+                        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        Add Article
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-target="trailers-view">
+                        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M21.582 6.186a2.506 2.506 0 0 0-1.762-1.766C18.265 4 12 4 12 4s-6.264 0-7.82.42a2.505 2.505 0 0 0-1.762 1.766C2 7.758 2 12 2 12s0 4.242.418 5.814a2.506 2.506 0 0 0 1.762 1.766C5.735 20 12 20 12 20s6.265 0 7.82-.42a2.506 2.506 0 0 0 1.762-1.766C22 16.242 22 12 22 12s0-4.242-.418-5.814zM9.996 15.005l0-6.01 5.362 3.004-5.362 3.006z"/></svg>
+                        Trailers
+                    </a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="back-to-site">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    Back to Site
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Topbar -->
+            <header class="admin-topbar">
+                <div class="topbar-search">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="topbar-profile">
+                    <span class="admin-name">Admin User</span>
+                    <img src="https://picsum.photos/40/40?random=1" alt="Profile" class="admin-avatar">
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="admin-view active-view">
+                <div class="view-header">
+                    <h2>Dashboard Overview</h2>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Articles</h3>
+                        <p class="stat-value" id="stat-total-articles">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Categories</h3>
+                        <p class="stat-value">6</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Trailers</h3>
+                        <p class="stat-value" id="stat-total-trailers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Views</h3>
+                        <p class="stat-value">45.2k</p>
+                    </div>
+                </div>
+
+                <div class="recent-posts">
+                    <h3>Recent Articles</h3>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bulvinar Neque Laoreet Suspendisse Interdum</td>
+                                <td>Movie Reviews</td>
+                                <td>Nov 21, 2026</td>
+                                <td><span class="badge badge-published">Published</span></td>
+                                <td><button class="btn-action">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td>Accumsan Tortor Posuere Acut Consequat Semper</td>
+                                <td>TV Reviews</td>
+                                <td>Nov 20, 2026</td>
+                                <td><span class="badge badge-draft">Draft</span></td>
+                                <td><button class="btn-action">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td>Diam Sollicitudin Tempor Eunisi Mipsum</td>
+                                <td>Movie News</td>
+                                <td>Nov 19, 2026</td>
+                                <td><span class="badge badge-published">Published</span></td>
+                                <td><button class="btn-action">Edit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add Post View -->
+            <div id="add-post-view" class="admin-view">
+                <div class="view-header">
+                    <h2 id="article-form-title">Add New Article</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-ghost" id="btn-cancel-edit" style="display:none;">Cancel Edit</button>
+                        <button class="btn btn-secondary">Save Draft</button>
+                        <button class="btn btn-primary" id="btn-publish">Publish Article</button>
+                    </div>
+                </div>
+
+                <div class="editor-layout">
+                    <!-- Left Column: Main Editor -->
+                    <div class="editor-main">
+                        <div class="form-group">
+                            <label for="article-title">Article Title</label>
+                            <input type="text" id="article-title" placeholder="Enter an engaging title...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Article Content</label>
+                            <div class="rich-text-editor">
+                                <div class="editor-toolbar">
+                                    <!-- Row 1: Text Format -->
+                                    <div class="toolbar-group">
+                                        <button type="button" class="tool-btn" data-command="bold" title="Bold"><b>B</b></button>
+                                        <button type="button" class="tool-btn" data-command="italic" title="Italic"><i>I</i></button>
+                                        <button type="button" class="tool-btn" data-command="underline" title="Underline"><u>U</u></button>
+                                        <button type="button" class="tool-btn" data-command="strikeThrough" title="Strikethrough"><s>S</s></button>
+                                    </div>
+                                    <div class="toolbar-divider"></div>
+                                    <!-- Headings -->
+                                    <div class="toolbar-group">
+                                        <button type="button" class="tool-btn" data-command="formatBlock" data-value="h1" title="Heading 1">H1</button>
+                                        <button type="button" class="tool-btn" data-command="formatBlock" data-value="h2" title="Heading 2">H2</button>
+                                        <button type="button" class="tool-btn" data-command="formatBlock" data-value="h3" title="Heading 3">H3</button>
+                                        <button type="button" class="tool-btn" data-command="formatBlock" data-value="p" title="Paragraph">P</button>
+                                    </div>
+                                    <div class="toolbar-divider"></div>
+                                    <!-- Lists -->
+                                    <div class="toolbar-group">
+                                        <button type="button" class="tool-btn" data-command="insertOrderedList" title="Ordered List">1.</button>
+                                        <button type="button" class="tool-btn" data-command="insertUnorderedList" title="Unordered List">•</button>
+                                        <button type="button" class="tool-btn" data-command="outdent" title="Outdent">&#8676;</button>
+                                        <button type="button" class="tool-btn" data-command="indent" title="Indent">&#8677;</button>
+                                    </div>
+                                    <div class="toolbar-divider"></div>
+                                    <!-- Alignment -->
+                                    <div class="toolbar-group">
+                                        <button type="button" class="tool-btn" data-command="justifyLeft" title="Align Left">&#8676;</button>
+                                        <button type="button" class="tool-btn" data-command="justifyCenter" title="Align Center">&#9636;</button>
+                                        <button type="button" class="tool-btn" data-command="justifyRight" title="Align Right">&#8677;</button>
+                                        <button type="button" class="tool-btn" data-command="justifyFull" title="Justify">&#8644;</button>
+                                    </div>
+                                    <div class="toolbar-divider"></div>
+                                    <!-- Insert -->
+                                    <div class="toolbar-group">
+                                        <button type="button" class="tool-btn" data-command="createLink" title="Insert Link">&#128279;</button>
+                                        <button type="button" class="tool-btn" data-command="formatBlock" data-value="blockquote" title="Blockquote">&#8220;&#8221;</button>
+                                        <button type="button" class="tool-btn" data-command="insertHorizontalRule" title="Horizontal Rule">&#8213;</button>
+                                    </div>
+                                    <div class="toolbar-divider"></div>
+                                    <!-- Undo / Redo / Clear -->
+                                    <div class="toolbar-group">
+                                        <button type="button" class="tool-btn" data-command="undo" title="Undo">&#8617;</button>
+                                        <button type="button" class="tool-btn" data-command="redo" title="Redo">&#8618;</button>
+                                        <button type="button" class="tool-btn" id="btn-clear-format" title="Clear Formatting">&#10006;</button>
+                                    </div>
+                                </div>
+                                <!-- Word Count Bar -->
+                                <div class="editor-status-bar">
+                                    <span id="word-count">0 words</span>
+                                    <span id="char-count">0 characters</span>
+                                    <button type="button" id="btn-paste-plain" class="paste-toggle active" title="Toggle paste mode">&#128203; Paste with Formatting: ON</button>
+                                </div>
+                                <div id="article-content" class="editor-content" contenteditable="true" placeholder="Write your article here..."></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Settings -->
+                    <div class="editor-sidebar">
+                        <div class="settings-box">
+                            <h3>Post Settings</h3>
+                            
+                            <div class="form-group">
+                                <label for="article-category">Category</label>
+                                <select id="article-category">
+                                    <option value="">Select Category...</option>
+                                    <option value="movie-reviews">Movie Reviews</option>
+                                    <option value="movie-news">Movie News</option>
+                                    <option value="box-office">Box Office</option>
+                                    <option value="tv-reviews">TV Reviews</option>
+                                    <option value="celebs">Celebs</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="article-cover">Cover Image URL</label>
+                                <input type="text" id="article-cover" placeholder="https://example.com/image.jpg">
+                                <div class="image-preview" id="cover-preview">
+                                    <span>Image Preview</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="article-trailer">YouTube Trailer URL (Optional)</label>
+                                <input type="text" id="article-trailer" placeholder="https://www.youtube.com/watch?v=...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+            <!-- Trailers View -->
+            <div id="trailers-view" class="admin-view">
+                <div class="view-header">
+                    <h2>Manage Trailers</h2>
+                </div>
+
+                <div class="panel-split">
+                    <!-- Add Trailer Form -->
+                    <div class="mini-form-box">
+                        <h3>Add New Trailer</h3>
+                        <div class="form-group">
+                            <label for="trailer-title">Movie / Show Title</label>
+                            <input type="text" id="trailer-title" placeholder="e.g. Spider-Man: No Way Home">
+                        </div>
+                        <div class="form-group">
+                            <label for="trailer-category">Category</label>
+                            <select id="trailer-category">
+                                <option value="">Select Category...</option>
+                                <option value="movie-reviews">Movie Reviews</option>
+                                <option value="movie-news">Movie News</option>
+                                <option value="box-office">Box Office</option>
+                                <option value="tv-reviews">TV Reviews</option>
+                                <option value="celebs">Celebs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="trailer-youtube">YouTube Trailer URL</label>
+                            <input type="text" id="trailer-youtube" placeholder="https://www.youtube.com/watch?v=...">
+                        </div>
+                        <!-- YouTube Preview -->
+                        <div class="youtube-preview-box" id="trailer-preview">
+                            <span>&#9654; YouTube Preview</span>
+                        </div>
+                        <button class="btn btn-primary" id="btn-add-trailer" style="width:100%; margin-top:16px;">+ Add Trailer</button>
+                    </div>
+
+                    <!-- Trailers List -->
+                    <div class="list-box">
+                        <h3>All Trailers</h3>
+                        <table class="admin-table" id="trailers-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>YouTube Link</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="trailers-tbody">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Spider-Man: No Way Home</td>
+                                    <td>Movie Reviews</td>
+                                    <td><a href="https://www.youtube.com/watch?v=JfVOs4VSpmA" target="_blank" class="yt-link">&#9654; Watch</a></td>
+                                    <td><button class="btn-delete">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Avengers: Endgame</td>
+                                    <td>Movie Reviews</td>
+                                    <td><a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" target="_blank" class="yt-link">&#9654; Watch</a></td>
+                                    <td><button class="btn-delete">Delete</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+    </div>
+
+    <!-- Include Javascript files -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
+
+

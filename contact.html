@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NetCinema News</title>
+    <meta name="description" content="NetCinema News - The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
+    <meta name="keywords" content="movies, movie reviews, film news, TV shows, box office, celebrity news, trailers, Hollywood, NetCinema News, cinema">
+    <meta name="author" content="NetCinema News">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://netcinemanews.live/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://netcinemanews.live/">
+    <meta property="og:title" content="NetCinema News - Movie Reviews & News">
+    <meta property="og:description" content="The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
+    <meta property="og:image" content="https://netcinemanews.live/favicon.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://netcinemanews.live/">
+    <meta name="twitter:title" content="NetCinema News - Movie Reviews & News">
+    <meta name="twitter:description" content="The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
+    <meta name="twitter:image" content="https://netcinemanews.live/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-page { background-color: #1a1a1a; min-height: 80vh; padding: 60px 0; }
+        .contact-page .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .category-title { font-size: 32px; font-weight: bold; color: #fff; border-left: 4px solid #bfa175; padding-left: 15px; margin-bottom: 40px; font-family: Arial, sans-serif; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
+        .contact-info h3 { font-size: 20px; color: #fff; margin-bottom: 15px; }
+        .contact-info p { color: #aaa; font-size: 14px; line-height: 1.7; margin-bottom: 25px; }
+        .info-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 20px; }
+        .info-icon { width: 40px; height: 40px; background: #242424; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .info-text .label { font-size: 11px; color: #bfa175; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+        .info-text .value { font-size: 14px; color: #ddd; }
+        .contact-form { background: #242424; border-radius: 8px; padding: 30px; }
+        .contact-form h3 { font-size: 20px; color: #fff; margin-bottom: 20px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 12px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; padding: 10px 14px; color: #fff; font-size: 14px; outline: none; transition: border-color 0.2s; box-sizing: border-box; font-family: Arial, sans-serif; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #bfa175; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .submit-btn { background: #bfa175; color: #111; border: none; padding: 12px 30px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; transition: background 0.2s; width: 100%; text-transform: uppercase; letter-spacing: 1px; }
+        .submit-btn:hover { background: #d4b990; }
+    </style>
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+    <header class="site-header">
+        <h1 class="header-title">NetCinema News</h1>
+        <div class="header-subtitle">Movie Reviews &amp; News</div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movie-reviews.html">Movie Reviews</a></li>
+                <li><a href="movie-news.html">Movie News</a></li>
+                <li><a href="box-office.html">Box Office</a></li>
+                <li><a href="tv-reviews.html">Tv Reviews</a></li>
+                <li><a href="trailers.html">Trailers</a></li>
+                <li><a href="celebs.html">Celebs</a></li>
+                <li><a href="top-stories.html">Top Stories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+    <section class="contact-page">
+        <div class="container">
+            <h2 class="category-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have a tip, press inquiry, or just want to say hello? We'd love to hear from you. Our team typically responds within 24 hours.</p>
+                    <div class="info-item"><div class="info-icon">✉</div><div class="info-text"><div class="label">Email</div><div class="value">contact@netcinemanews.com</div></div></div>
+                    <div class="info-item"><div class="info-icon">📰</div><div class="info-text"><div class="label">Press</div><div class="value">press@netcinemanews.com</div></div></div>
+                    <div class="info-item"><div class="info-icon">📢</div><div class="info-text"><div class="label">Advertising</div><div class="value">ads@netcinemanews.com</div></div></div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send A Message</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group"><label>Your Name</label><input type="text" placeholder="John Doe" required></div>
+                        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com" required></div>
+                        <div class="form-group"><label>Subject</label><select><option>General Inquiry</option><option>Press Inquiry</option><option>Advertising</option><option>Submit A Tip</option><option>Other</option></select></div>
+                        <div class="form-group"><label>Message</label><textarea placeholder="Write your message here..."></textarea></div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-top-row">
+            <div class="footer-brand"><h2 class="footer-logo">NetCinema News</h2><p class="footer-tagline">Movie Reviews &amp; News</p></div>
+            <div class="footer-cols">
+                <div class="footer-col"><h4>Categories</h4><ul><li><a href="movie-reviews.html">Movie Reviews</a></li><li><a href="movie-news.html">Movie News</a></li><li><a href="box-office.html">Box Office</a></li><li><a href="trailers.html">Trailers</a></li></ul></div>
+                <div class="footer-col"><h4>TV &amp; Celebs</h4><ul><li><a href="tv-reviews.html">TV Reviews</a></li><li><a href="celebs.html">Celebs</a></li><li><a href="top-stories.html">Top Stories</a></li></ul></div>
+                <div class="footer-col"><h4>Information</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-conditions.html">Terms &amp; Conditions</a></li><li><a href="site-map.html">Site Map</a></li></ul></div>
+                <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="our-team.html">Our Team</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="advertise.html">Advertise</a></li></ul></div>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom-row">
+            <div class="social-icons">
+                <a href="#" class="social-link" aria-label="Facebook"><svg class="social-icon" viewBox="0 0 24 24"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg></a>
+                <a href="#" class="social-link" aria-label="Twitter"><svg class="social-icon" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                <a href="#" class="social-link" aria-label="Social Media"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.248-1.249zm5.5 0c-.687 0-1.248.562-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.688-.561-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .466c.843.84 2.484.915 2.961.915.477 0 2.105-.075 2.961-.915a.33.33 0 0 0 0-.466.327.327 0 0 0-.466 0c-.326.326-1.537.466-2.495.466-.958 0-2.144-.14-2.495-.466a.333.333 0 0 0-.235-.094z"/></svg></a>
+            </div>
+            <p class="copyright">&copy;Copyright 2026 - NetCinema News. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>function handleSubmit(e){e.preventDefault();alert('Thank you for your message! We will get back to you within 24 hours.');e.target.reset();}</script>
+</body>
+</html>
+
+
