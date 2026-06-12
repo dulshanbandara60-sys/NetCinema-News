@@ -156,7 +156,7 @@ function sanitizeHTML(html) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     doc.querySelectorAll('script, style, meta, link, head').forEach(el => el.remove());
-    const allowed = ['p','h1','h2','h3','h4','h5','h6','strong','b','em','i','u','s','ul','ol','li','a','blockquote','br','hr','span','div'];
+    const allowed = ['p','h1','h2','h3','h4','h5','h6','strong','b','em','i','u','s','ul','ol','li','a','blockquote','br','hr','span','div','table','thead','tbody','tr','th','td'];
     doc.body.querySelectorAll('*').forEach(el => {
         el.removeAttribute('class');
         el.removeAttribute('style');

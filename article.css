@@ -617,3 +617,61 @@ body {
         font-size: 10px;
     }
 }
+
+/* Elegant Table / Timeline Styles */
+.article-main table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 50px 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+}
+
+.article-main thead th {
+    color: #bfa175;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    text-align: left;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+}
+
+.article-main tbody tr {
+    border-bottom: 1px solid #222;
+}
+
+.article-main tbody tr:last-child {
+    border-bottom: none;
+}
+
+.article-main tbody td {
+    padding: 25px 20px;
+    vertical-align: top;
+}
+
+/* First column (e.g., Year) */
+.article-main tbody td:first-child {
+    color: #bfa175;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    width: 100px;
+}
+
+/* Second column (e.g., Content) */
+.article-main tbody td:last-child {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 19px;
+    color: #bbb;
+    line-height: 1.7;
+}
+
+.article-main tbody td strong, .article-main tbody td b {
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
