@@ -628,7 +628,15 @@ body {
     background-color: transparent;
 }
 
+.article-main thead, .article-main thead tr {
+    display: block;
+    width: 100%;
+}
+
 .article-main thead th {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     color: #bfa175;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -638,6 +646,10 @@ body {
     border-bottom: 1px solid #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 800;
+}
+
+.article-main thead th:not(:first-child) {
+    display: none;
 }
 
 .article-main tbody tr {
