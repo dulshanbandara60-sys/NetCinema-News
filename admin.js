@@ -135,8 +135,13 @@ if (editorContent) {
                 document.execCommand('insertHTML', false, sanitizeHTML(htmlData));
             } else {
                 const plain = e.clipboardData.getData('text/plain');
-                const wrapped = plain.split('\n').map(l => l.trim() ? `<p>${escapeHTML(l)}</p>` : '').join('');
-                document.execCommand('insertHTML', false, wrapped || plain);
+                if (window.marked) {
+                    const parsed = marked.parse(plain);
+                    document.execCommand('insertHTML', false, sanitizeHTML(parsed));
+                } else {
+                    const wrapped = plain.split('\n').map(l => l.trim() ? `<p>${escapeHTML(l)}</p>` : '').join('');
+                    document.execCommand('insertHTML', false, wrapped || plain);
+                }
             }
         } else {
             const plain = e.clipboardData.getData('text/plain');
