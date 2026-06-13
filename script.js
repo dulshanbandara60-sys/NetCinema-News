@@ -7,8 +7,14 @@ const SUPABASE_URL = 'https://vonltpyxqdfzuobphfxv.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_6rBCcEVqoBVraBcc5duxrA_dkbOaB-H';
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// Fallback Image
-const FALLBACK_IMAGE = 'https://via.placeholder.com/800x450?text=NetCinema';
+
+
+function optimizeImage(url, width = 800) {
+    if (!url) return FALLBACK_IMAGE;
+    if (url.includes('lh3.googleusercontent.com')) return url.replace(/=s\d+/, =s// Fallback Image
+const FALLBACK_IMAGE = 'https://via.placeholder.com/800x450?text=NetCinema';{width});
+    return url;
+}
 
 // =========================================
 // Utility Functions
@@ -100,7 +106,7 @@ async function fetchBoxOffice() {
 
 // Generate HTML for a small sidebar item
 function renderSidebarItem(article) {
-    const img = article.cover_image || FALLBACK_IMAGE;
+    const img = optimizeImage(article.cover_image || FALLBACK_IMAGE, 500);
     return `
         <article class="sidebar-item" onclick="window.location.href='article.html?slug=${article.slug}'" style="cursor:pointer;">
             <div class="sidebar-item-content">
@@ -114,7 +120,7 @@ function renderSidebarItem(article) {
 
 // Generate HTML for a standard grid card
 function renderGridCard(article) {
-    const img = article.cover_image || FALLBACK_IMAGE;
+    const img = optimizeImage(article.cover_image || FALLBACK_IMAGE, 500);
     return `
         <article class="small-card card" onclick="window.location.href='article.html?slug=${article.slug}'" style="cursor:pointer;">
             <img src="${img}" alt="${article.title}" loading="lazy">
@@ -127,7 +133,7 @@ function renderGridCard(article) {
 
 // Generate HTML for an exclusive card (used in lower sections)
 function renderExclusiveCard(article) {
-    const img = article.cover_image || FALLBACK_IMAGE;
+    const img = optimizeImage(article.cover_image || FALLBACK_IMAGE, 500);
     const catLabel = article.category.toUpperCase().replace('-', ' ');
     return `
         <article class="exclusive-card card" onclick="window.location.href='article.html?slug=${article.slug}'" style="cursor:pointer;">
@@ -143,7 +149,7 @@ function renderExclusiveCard(article) {
 
 // Generate HTML for a Box Office Card
 function renderBoxOfficeCard(bo) {
-    const img = bo.cover_image || FALLBACK_IMAGE;
+    const img = optimizeImage(bo.cover_image || FALLBACK_IMAGE, 500);
     return `
         <article class="small-card card">
             <img src="${img}" alt="${bo.movie}" loading="lazy">
@@ -167,7 +173,7 @@ async function initHomePage() {
     const heroContainer = document.getElementById('dynamic-hero');
     if (heroContainer && articles.length > 0) {
         const heroArt = articles[0];
-        const img = heroArt.cover_image || FALLBACK_IMAGE;
+        const img = optimizeImage(heroArt.cover_image || FALLBACK_IMAGE, 500);
         heroContainer.innerHTML = `
             <article class="main-card card" onclick="window.location.href='article.html?slug=${heroArt.slug}'" style="cursor:pointer;">
                 <img src="${img}" alt="${heroArt.title}" fetchpriority="high">
@@ -256,7 +262,7 @@ async function initHomeCategoryReviews() {
 
             const renderSlide = (idx) => {
                 const rev = mReviews[idx];
-                const img = rev.cover_image || FALLBACK_IMAGE;
+                const img = optimizeImage(rev.cover_image || FALLBACK_IMAGE, 500);
                 return `
                     <div class="movie-slider card" onclick="window.location.href='article.html?slug=${rev.slug}'" style="cursor:pointer;">
                         <img src="${img}" alt="${rev.title}" loading="lazy">
@@ -311,7 +317,7 @@ async function initHomeCategoryReviews() {
     const tvList = document.getElementById('dynamic-tv-reviews');
     if (tvList) {
         tvList.innerHTML = tvReviews.length > 0 ? tvReviews.map(rev => {
-            const img = rev.cover_image || FALLBACK_IMAGE;
+            const img = optimizeImage(rev.cover_image || FALLBACK_IMAGE, 500);
             return `
                 <article class="review-item" onclick="window.location.href='article.html?slug=${rev.slug}'" style="cursor:pointer;">
                     <img src="${img}" alt="${rev.title}" loading="lazy">
@@ -344,14 +350,14 @@ async function initTopStoriesPage() {
     const sideStories = articles.slice(1, 5);
     let sideStoriesHtml = sideStories.map(a => `
         <div class="side-article" onclick="window.location.href='article.html?slug=${a.slug}'">
-            <img src="${a.cover_image || FALLBACK_IMAGE}" alt="${a.title}" loading="lazy">
+            <img src="${optimizeImage(a.cover_image || FALLBACK_IMAGE, 500)}" alt="${a.title}" loading="lazy">
             <div class="info"><span class="tag">Top Story</span><h3>${a.title}</h3></div>
         </div>
     `).join('');
 
     heroContainer.innerHTML = `
         <div class="hero-article" onclick="window.location.href='article.html?slug=${hero.slug}'">
-            <img src="${hero.cover_image || FALLBACK_IMAGE}" alt="${hero.title}" fetchpriority="high">
+            <img src="${optimizeImage(hero.cover_image || FALLBACK_IMAGE, 500)}" alt="${hero.title}" fetchpriority="high">
             <div class="overlay">
                 <span class="tag">Top Story</span>
                 <h2>${hero.title}</h2>
@@ -368,7 +374,7 @@ async function initTopStoriesPage() {
     if (gridStories.length > 0) {
         gridContainer.innerHTML = gridStories.map(a => `
             <div class="article-card" onclick="window.location.href='article.html?slug=${a.slug}'">
-                <img src="${a.cover_image || FALLBACK_IMAGE}" alt="${a.title}" loading="lazy">
+                <img src="${optimizeImage(a.cover_image || FALLBACK_IMAGE, 500)}" alt="${a.title}" loading="lazy">
                 <div class="article-info">
                     <span class="tag">Top Story</span>
                     <h3>${a.title}</h3>
@@ -558,7 +564,7 @@ async function initArticlePage() {
         const latestMovieNews = await fetchArticlesByCategory('movie-news', 1);
         if (latestMovieNews.length > 0) {
             const news = latestMovieNews[0];
-            const img = news.cover_image || FALLBACK_IMAGE;
+            const img = optimizeImage(news.cover_image || FALLBACK_IMAGE, 500);
             const dateStr = formatDate(news.created_at).toUpperCase();
             movieNewsContainer.innerHTML = `
                 <div class="breaking-card" onclick="window.location.href='article.html?slug=${news.slug}'" style="cursor:pointer;">
@@ -580,7 +586,7 @@ async function initArticlePage() {
     if (latestPostsContainer) {
         const latestPosts = await fetchLatestArticles(4);
         latestPostsContainer.innerHTML = latestPosts.map(post => {
-            const img = post.cover_image || FALLBACK_IMAGE;
+            const img = optimizeImage(post.cover_image || FALLBACK_IMAGE, 500);
             const dateStr = formatDate(post.created_at).toUpperCase();
             return `
                 <div class="popular-item" onclick="window.location.href='article.html?slug=${post.slug}'" style="cursor:pointer;">
@@ -605,7 +611,7 @@ async function initArticlePage() {
         if (related.length > 0) {
             relatedContainer.innerHTML = related.map(r => `
                 <div class="related-card" onclick="window.location.href='article.html?slug=${r.slug}'" style="cursor:pointer;">
-                    <img src="${r.cover_image || FALLBACK_IMAGE}" alt="${r.title}" loading="lazy">
+                    <img src="${optimizeImage(r.cover_image || FALLBACK_IMAGE, 500)}" alt="${r.title}" loading="lazy">
                     <div class="related-info">
                         <h4>${r.title}</h4>
                         <span class="date">${formatDate(r.created_at)}</span>
@@ -623,7 +629,7 @@ async function initArticlePage() {
     const prevPostElem = document.getElementById('dynamic-prev-post');
     if (prevPostElem && currentIndex < catArticles.length - 1 && currentIndex !== -1) {
         const prevPost = catArticles[currentIndex + 1]; // older post
-        prevPostElem.querySelector('img').src = prevPost.cover_image || FALLBACK_IMAGE;
+        prevPostElem.querySelector('img').src = optimizeImage(prevPost.cover_image || FALLBACK_IMAGE, 500);
         prevPostElem.querySelector('h4').textContent = prevPost.title;
         prevPostElem.href = `article.html?slug=${prevPost.slug}`;
         prevPostElem.style.visibility = 'visible';
@@ -632,7 +638,7 @@ async function initArticlePage() {
     const nextPostElem = document.getElementById('dynamic-next-post');
     if (nextPostElem && currentIndex > 0) {
         const nextPost = catArticles[currentIndex - 1]; // newer post
-        nextPostElem.querySelector('img').src = nextPost.cover_image || FALLBACK_IMAGE;
+        nextPostElem.querySelector('img').src = optimizeImage(nextPost.cover_image || FALLBACK_IMAGE, 500);
         nextPostElem.querySelector('h4').textContent = nextPost.title;
         nextPostElem.href = `article.html?slug=${nextPost.slug}`;
         nextPostElem.style.visibility = 'visible';
@@ -713,3 +719,5 @@ document.addEventListener('DOMContentLoaded', () => {
         initArticlePage();
     }
 });
+
+

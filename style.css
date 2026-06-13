@@ -1423,9 +1423,16 @@ body {
 }
 
 .skeleton-hero {
-    height: 400px;
+    aspect-ratio: 16/9;
+    height: auto;
     border-radius: 8px;
     width: 100%;
+}
+
+.hero-main img, .hero-link img {
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
 }
 
 .skeleton-sidebar-item {
