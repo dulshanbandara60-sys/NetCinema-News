@@ -7,15 +7,14 @@ const SUPABASE_URL = 'https://vonltpyxqdfzuobphfxv.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_6rBCcEVqoBVraBcc5duxrA_dkbOaB-H';
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-
+// Fallback Image
+const FALLBACK_IMAGE = 'https://via.placeholder.com/800x450?text=NetCinema';
 
 function optimizeImage(url, width = 800) {
     if (!url) return FALLBACK_IMAGE;
-    if (url.includes('lh3.googleusercontent.com')) return url.replace(/=s\d+/, =s// Fallback Image
-const FALLBACK_IMAGE = 'https://via.placeholder.com/800x450?text=NetCinema';{width});
+    if (url.includes('lh3.googleusercontent.com')) return url.replace(/=s\d+/, `=s${width}`);
     return url;
 }
-
 // =========================================
 // Utility Functions
 // =========================================
