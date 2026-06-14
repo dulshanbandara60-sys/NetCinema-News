@@ -1,5 +1,6 @@
 const Parser = require('rss-parser');
 const { createClient } = require('@supabase/supabase-js');
+const { google } = require('googleapis');
 
 const SUPABASE_URL = process.env.SUPABASE_URL || '';
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
@@ -27,6 +28,40 @@ function generateSlug(title) {
 async function checkArticleExists(slug) {
     const { data } = await supabase.from('articles').select('id').eq('slug', slug).single();
     return !!data;
+}
+
+async function notifyGoogleIndex(url) {
+    if (!process.env.GOOGLE_CREDENTIALS) {
+        console.log("No GOOGLE_CREDENTIALS found, skipping Indexing API.");
+        return;
+    }
+
+    try {
+        const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+        const jwtClient = new google.auth.JWT(
+            credentials.client_email,
+            null,
+            credentials.private_key,
+            ["https://www.googleapis.com/auth/indexing"],
+            null
+        );
+
+        await jwtClient.authorize();
+
+        const indexing = google.indexing({ version: 'v3', auth: jwtClient });
+        
+        console.log(`Pinging Google Indexing API for: ${url}`);
+        const response = await indexing.urlNotifications.publish({
+            requestBody: {
+                url: url,
+                type: 'URL_UPDATED'
+            }
+        });
+        
+        console.log(`Google Indexing API response status: ${response.status}`);
+    } catch (e) {
+        console.error("Failed to notify Google Indexing API:", e.message);
+    }
 }
 
 async function humanizeArticle(title, description, creator) {
@@ -135,6 +170,11 @@ async function run() {
                     if (error) throw error;
 
                     console.log(`Successfully published: ${item.title}`);
+                    
+                    // Ping Google Indexing API
+                    const publicUrl = `https://netcinemanews.live/article.html?id=${slug}`;
+                    await notifyGoogleIndex(publicUrl);
+
                     newArticleImported = true;
                     break; 
                 }
