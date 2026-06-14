@@ -32,8 +32,12 @@ async function checkArticleExists(slug) {
 async function humanizeArticle(title, description, creator) {
     const prompt = `
 You are a top-tier movie news journalist for "NetCinema News". Rewrite the following news article into a highly engaging, humanized, and SEO-friendly article.
-Make it sound exciting, professional, and unique. Do not mention the original source like ScreenRant or Collider.
-Use HTML tags for formatting (e.g., <p>, <h2>, <strong>).
+CRITICAL RULES:
+1. You MUST include all the real facts, names, and details from the original article. Do not invent fake news.
+2. The article MUST be extremely detailed and long. It MUST contain at least 1000 words. Expand on the context, background, and implications of the news to reach this length.
+3. Make it sound exciting, professional, and unique. 
+4. Do not mention the original source like ScreenRant or Collider.
+5. Use HTML tags for formatting (e.g., <p>, <h2>, <strong>, <ul>, <li>).
 
 IMPORTANT: You must return the response strictly as a JSON object with two fields:
 1. "category": Choose the most appropriate category from this exact list: 'movie-news', 'movie-reviews', 'tv-reviews', 'celebs', 'trailers'.
@@ -56,7 +60,7 @@ Original Content: ${description}
             response_format: { type: "json_object" },
             messages: [{ role: "user", content: prompt }],
             temperature: 0.7,
-            max_tokens: 1500
+            max_tokens: 3500
         })
     });
 
