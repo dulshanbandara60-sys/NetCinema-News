@@ -52,7 +52,7 @@ Original Content: ${description}
             "X-Title": "NetCinema News Automation"
         },
         body: JSON.stringify({
-            model: "meta-llama/llama-3-8b-instruct:free", // 100% Free OpenRouter model
+            model: "google/gemma-2-9b-it:free", // Switching to a reliable Google free model
             response_format: { type: "json_object" },
             messages: [{ role: "user", content: prompt }],
             temperature: 0.7,
