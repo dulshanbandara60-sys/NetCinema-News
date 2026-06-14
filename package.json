@@ -1,0 +1,14 @@
+{
+  "name": "netcinema-news-automation",
+  "version": "1.0.0",
+  "description": "Auto news fetcher and publisher using AI",
+  "main": "scripts/auto-news.js",
+  "scripts": {
+    "start": "node scripts/auto-news.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.3",
+    "openai": "^4.28.0",
+    "rss-parser": "^3.13.0"
+  }
+}
