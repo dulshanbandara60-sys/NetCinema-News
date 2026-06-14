@@ -64,7 +64,7 @@ async function notifyGoogleIndex(url) {
     }
 }
 
-async function humanizeArticle(title, description, creator) {
+async function humanizeArticle(title, description, creator, retries = 3) {
     const prompt = `
 You are a top-tier movie news journalist for "NetCinema News". Rewrite the following news article into a highly engaging, humanized, and SEO-friendly article.
 CRITICAL RULES:
@@ -83,39 +83,53 @@ Original Title: ${title}
 Original Content: ${description}
 `;
 
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${OPENAI_API_KEY}`, // Now using OpenRouter Key
-            "HTTP-Referer": "https://netcinemanews.live", // Required for OpenRouter
-            "X-Title": "NetCinema News Automation"
-        },
-        body: JSON.stringify({
-            model: "openrouter/free", // Automatically uses an available free model
-            response_format: { type: "json_object" },
-            messages: [{ role: "user", content: prompt }],
-            temperature: 0.7,
-            max_tokens: 3500
-        })
-    });
+    for (let attempt = 1; attempt <= retries; attempt++) {
+        try {
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${OPENAI_API_KEY}`,
+                    "HTTP-Referer": "https://netcinemanews.live",
+                    "X-Title": "NetCinema News Automation"
+                },
+                body: JSON.stringify({
+                    model: "openrouter/free", 
+                    response_format: { type: "json_object" },
+                    messages: [{ role: "user", content: prompt }],
+                    temperature: 0.7,
+                    max_tokens: 3000
+                })
+            });
 
-    if (!response.ok) {
-        throw new Error(`OpenAI API error: ${await response.text()}`);
-    }
+            if (!response.ok) {
+                throw new Error(`OpenAI API error: ${await response.text()}`);
+            }
 
-    const jsonResponse = await response.json();
-    const resultText = jsonResponse.choices[0].message.content.trim();
-    
-    try {
-        const parsed = JSON.parse(resultText);
-        return {
-            category: parsed.category || 'movie-news',
-            content: parsed.htmlContent || ''
-        };
-    } catch (e) {
-        console.error("Failed to parse JSON from OpenAI:", resultText);
-        throw e;
+            const jsonResponse = await response.json();
+            let resultText = jsonResponse.choices[0].message.content.trim();
+            
+            // Clean up common markdown formatting if the model wrapped it in ```json
+            if (resultText.startsWith('\`\`\`json')) {
+                resultText = resultText.replace(/^\`\`\`json/, '').replace(/\`\`\`$/, '').trim();
+            } else if (resultText.startsWith('\`\`\`')) {
+                resultText = resultText.replace(/^\`\`\`/, '').replace(/\`\`\`$/, '').trim();
+            }
+
+            const parsed = JSON.parse(resultText);
+            return {
+                category: parsed.category || 'movie-news',
+                content: parsed.htmlContent || ''
+            };
+        } catch (e) {
+            console.error(`Attempt ${attempt} failed to generate valid JSON:`, e.message);
+            if (attempt === retries) {
+                throw new Error("Failed to generate valid article after multiple attempts.");
+            }
+            console.log("Retrying...");
+            // Wait 2 seconds before retrying
+            await new Promise(r => setTimeout(r, 2000));
+        }
     }
 }
 
