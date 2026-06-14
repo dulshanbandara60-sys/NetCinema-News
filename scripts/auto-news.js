@@ -16,8 +16,8 @@ const parser = new Parser({
 });
 
 const RSS_FEEDS = [
-    'https://screenrant.com/feed/category/movie-news/',
-    'https://collider.com/feed/movie-news/'
+    'https://screenrant.com/feed/',
+    'https://collider.com/feed/'
 ];
 
 function generateSlug(title) {
