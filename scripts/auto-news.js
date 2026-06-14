@@ -34,10 +34,11 @@ async function humanizeArticle(title, description, creator) {
 You are a top-tier movie news journalist for "NetCinema News". Rewrite the following news article into a highly engaging, humanized, and SEO-friendly article.
 CRITICAL RULES:
 1. You MUST include all the real facts, names, and details from the original article. Do not invent fake news.
-2. The article MUST be extremely detailed and long. It MUST contain at least 1000 words. Expand on the context, background, and implications of the news to reach this length.
+2. The article MUST be detailed and long, aiming for around 600 to 800 words. (OpenRouter free models cut off if it's too long).
 3. Make it sound exciting, professional, and unique. 
 4. Do not mention the original source like ScreenRant or Collider.
 5. Use HTML tags for formatting (e.g., <p>, <h2>, <strong>, <ul>, <li>).
+6. DO NOT include <!DOCTYPE html>, <html>, <head>, or <body> tags. Only output the inner HTML content.
 
 IMPORTANT: You must return the response strictly as a JSON object with two fields:
 1. "category": Choose the most appropriate category from this exact list: 'movie-news', 'movie-reviews', 'tv-reviews', 'celebs', 'trailers'.
