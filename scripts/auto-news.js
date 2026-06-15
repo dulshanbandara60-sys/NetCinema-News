@@ -75,6 +75,7 @@ CRITICAL RULES:
 5. Do not mention the original source like ScreenRant or Collider.
 6. Use HTML tags for formatting (e.g., <p>, <h2>, <strong>, <ul>, <li>).
 7. DO NOT include <!DOCTYPE html>, <html>, <head>, or <body> tags. Only output the inner HTML content.
+8. [ANTI-AI DETECTION]: You must write with high burstiness and high perplexity. Vary your sentence lengths dramatically. Use a highly conversational and engaging tone. Include occasional colloquialisms or natural human nuances. Avoid repetitive AI transition words like 'Furthermore', 'In conclusion', or 'Ultimately'. Write as if you are a passionate human movie fan talking to a friend.
 
 IMPORTANT: You must return the response strictly as a JSON object with two fields:
 1. "category": Choose the most appropriate category from this exact list: 'movie-news', 'movie-reviews', 'tv-reviews', 'celebs', 'trailers'.
