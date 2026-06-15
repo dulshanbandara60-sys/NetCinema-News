@@ -187,7 +187,7 @@ async function run() {
                     console.log(`Successfully published: ${item.title}`);
                     
                     // Ping Google Indexing API
-                    const publicUrl = `https://netcinemanews.live/article.html?id=${slug}`;
+                    const publicUrl = `https://netcinemanews.live/article.html?slug=${slug}`;
                     await notifyGoogleIndex(publicUrl);
 
                     newArticleImported = true;
