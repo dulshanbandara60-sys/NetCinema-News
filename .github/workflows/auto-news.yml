@@ -2,8 +2,8 @@ name: Auto News Fetcher
 
 on:
   schedule:
-    # Runs every 2 hours
-    - cron: '0 */2 * * *'
+    # Runs every hour
+    - cron: '0 * * * *'
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
 jobs:
