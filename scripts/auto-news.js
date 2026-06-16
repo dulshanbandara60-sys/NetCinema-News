@@ -1,6 +1,7 @@
 const Parser = require('rss-parser');
 const { createClient } = require('@supabase/supabase-js');
 const { google } = require('googleapis');
+const fs = require('fs');
 
 const SUPABASE_URL = process.env.SUPABASE_URL || '';
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
@@ -135,6 +136,56 @@ Original Content: ${description}
     }
 }
 
+async function generateRSSFeed() {
+    console.log("Generating RSS Feed...");
+    const { data: articles, error } = await supabase
+        .from('articles')
+        .select('title, slug, created_at, cover_image, category')
+        .eq('status', 'published')
+        .order('created_at', { ascending: false })
+        .limit(20);
+
+    if (error) {
+        console.error("Failed to fetch articles for RSS:", error.message);
+        return;
+    }
+
+    let rssContent = `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+    <title>NetCinema News</title>
+    <link>https://netcinemanews.live</link>
+    <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+`;
+
+    for (const article of articles) {
+        const url = `https://netcinemanews.live/article?slug=${article.slug}`;
+        const pubDate = new Date(article.created_at).toUTCString();
+        const imageUrl = article.cover_image || 'https://netcinemanews.live/favicon.png';
+        const safeTitle = article.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const safeCategory = article.category.replace(/-/g, ' ');
+
+        rssContent += `
+    <item>
+        <title>${safeTitle}</title>
+        <link>${url}</link>
+        <guid>${url}</guid>
+        <pubDate>${pubDate}</pubDate>
+        <category>${safeCategory}</category>
+        <media:content url="${imageUrl}" medium="image" />
+    </item>`;
+    }
+
+    rssContent += `
+</channel>
+</rss>`;
+
+    fs.writeFileSync('rss.xml', rssContent, 'utf8');
+    console.log("rss.xml generated successfully.");
+}
+
 async function run() {
     try {
         if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !OPENAI_API_KEY) {
@@ -197,10 +248,11 @@ async function run() {
             }
         }
 
-        if (!newArticleImported) {
-            console.log("No new articles found across all feeds.");
-        } else {
+        if (newArticleImported) {
+            await generateRSSFeed();
             console.log("Auto-News Fetcher finished successfully.");
+        } else {
+            console.log("No new articles found across all feeds.");
         }
 
     } catch (error) {
