@@ -629,7 +629,7 @@ async function initArticlePage() {
     if (prevPostElem && currentIndex < catArticles.length - 1 && currentIndex !== -1) {
         const prevPost = catArticles[currentIndex + 1]; // older post
         prevPostElem.querySelector('img').src = optimizeImage(prevPost.cover_image || FALLBACK_IMAGE, 500);
-        prevPostElem.querySelector('h4').textContent = prevPost.title;
+        prevPostElem.querySelector('.nav-post-info').innerHTML = `<span class="nav-label">PREVIOUS POST</span><h4>${prevPost.title}</h4>`;
         prevPostElem.href = `article.html?slug=${prevPost.slug}`;
         prevPostElem.style.visibility = 'visible';
     }
@@ -638,7 +638,7 @@ async function initArticlePage() {
     if (nextPostElem && currentIndex > 0) {
         const nextPost = catArticles[currentIndex - 1]; // newer post
         nextPostElem.querySelector('img').src = optimizeImage(nextPost.cover_image || FALLBACK_IMAGE, 500);
-        nextPostElem.querySelector('h4').textContent = nextPost.title;
+        nextPostElem.querySelector('.nav-post-info').innerHTML = `<span class="nav-label">NEXT POST</span><h4>${nextPost.title}</h4>`;
         nextPostElem.href = `article.html?slug=${nextPost.slug}`;
         nextPostElem.style.visibility = 'visible';
     }
