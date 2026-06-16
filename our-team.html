@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T8M5N8X7FK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8M5N8X7FK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-T8M5N8X7FK');
-</script>
+        gtag('config', 'G-T8M5N8X7FK');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Team - NetCinema News</title>
-    <meta name="description" content="NetCinema News - The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
-    <meta name="keywords" content="movies, movie reviews, film news, TV shows, box office, celebrity news, trailers, Hollywood, NetCinema News, cinema">
+    <meta name="description"
+        content="NetCinema News - The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
+    <meta name="keywords"
+        content="movies, movie reviews, film news, TV shows, box office, celebrity news, trailers, Hollywood, NetCinema News, cinema">
     <meta name="author" content="NetCinema News">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://netcinemanews.live/">
@@ -23,37 +26,126 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://netcinemanews.live/">
     <meta property="og:title" content="NetCinema News - Movie Reviews & News">
-    <meta property="og:description" content="The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
+    <meta property="og:description"
+        content="The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
     <meta property="og:image" content="https://netcinemanews.live/favicon.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://netcinemanews.live/">
     <meta name="twitter:title" content="NetCinema News - Movie Reviews & News">
-    <meta name="twitter:description" content="The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
+    <meta name="twitter:description"
+        content="The ultimate source for the latest movie reviews, breaking entertainment news, TV show recaps, box office updates, and celebrity gossip.">
     <meta name="twitter:image" content="https://netcinemanews.live/favicon.png">
-    <meta name="description" content="Meet the passionate team behind NetCinema News - our editors, critics, and writers.">
+    <meta name="description"
+        content="Meet the passionate team behind NetCinema News - our editors, critics, and writers.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.png">
     <style>
-        .team-page { background-color: #1a1a1a; min-height: 80vh; padding: 60px 0; }
-        .team-page .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        .team-hero { text-align: center; margin-bottom: 60px; }
-        .team-hero h2 { font-size: 42px; font-family: Georgia, serif; color: #fff; margin-bottom: 10px; }
-        .team-hero p { font-size: 16px; color: #888; max-width: 580px; margin: 0 auto; line-height: 1.7; }
-        .dept-title { font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #bfa175; margin: 50px 0 25px; }
-        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-        .team-card { background: #242424; border-radius: 10px; overflow: hidden; transition: transform 0.2s; }
-        .team-card:hover { transform: translateY(-4px); }
-        .team-card img { width: 100%; height: 180px; object-fit: cover; object-position: top; }
-        .team-card-body { padding: 18px 15px; }
-        .team-card .name { font-size: 15px; font-weight: bold; color: #fff; margin-bottom: 4px; }
-        .team-card .role { font-size: 12px; color: #bfa175; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .team-card .bio { font-size: 13px; color: #888; line-height: 1.6; }
-        @media (max-width: 768px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
+        .team-page {
+            background-color: #1a1a1a;
+            min-height: 80vh;
+            padding: 60px 0;
+        }
+
+        .team-page .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .team-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-hero h2 {
+            font-size: 42px;
+            font-family: Georgia, serif;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .team-hero p {
+            font-size: 16px;
+            color: #888;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .dept-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #bfa175;
+            margin: 50px 0 25px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .team-card {
+            background: #242424;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .team-card-body {
+            padding: 18px 15px;
+        }
+
+        .team-card .name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .team-card .role {
+            font-size: 12px;
+            color: #bfa175;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .team-card .bio {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header class="site-header">
         <h1 class="header-title">NetCinema News</h1>
@@ -75,97 +167,144 @@
     </header>
     <main>
 
-    <section class="team-page">
-        <div class="container">
-            <div class="team-hero">
-                <h2>Meet Our Team</h2>
-                <p>A passionate group of film critics, journalists, and entertainment enthusiasts dedicated to bringing you the very best in movie and TV coverage.</p>
-            </div>
+        <section class="team-page">
+            <div class="container">
+                <div class="team-hero">
+                    <h2>Meet Our Team</h2>
+                    <p>A passionate group of film critics, journalists, and entertainment enthusiasts dedicated to
+                        bringing you the very best in movie and TV coverage.</p>
+                </div>
 
-            <p class="dept-title">Editorial Leadership</p>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=801" alt="Grant Hermanns" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">Grant Hermanns</div>
-                        <div class="role">Editor in Chief</div>
-                        <div class="bio">Film veteran with 15+ years covering Hollywood's biggest releases and independent gems.</div>
+                <p class="dept-title">Editorial Leadership</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/jvh9pF56/Grant-Hermanns-Editor-in-Chief.webp" alt="Grant Hermanns"
+                            loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">Grant Hermanns</div>
+                            <div class="role">Editor in Chief</div>
+                            <div class="bio">Film veteran with 15+ years covering Hollywood's biggest releases and
+                                independent gems.</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/21K0VFT1/Sarah-Miles-Senior-Film-Critic.webp" alt="Sarah Miles"
+                            loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">Sarah Miles</div>
+                            <div class="role">Senior Film Critic</div>
+                            <div class="bio">Award-winning critic specializing in foreign cinema and genre films.</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/XGDqPnc/James-Carr-Managing-Editor.webp" alt="James Carr"
+                            loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">James Carr</div>
+                            <div class="role">Managing Editor</div>
+                            <div class="bio">Keeps the team running smoothly with a love for sci-fi and action
+                                blockbusters.</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/Kpqt4FFj/Priya-Sharma-Deputy-Editor.webp" alt="Priya Sharma"
+                            loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">Priya Sharma</div>
+                            <div class="role">Deputy Editor</div>
+                            <div class="bio">Focuses on streaming content and the evolution of the entertainment
+                                industry.</div>
+                        </div>
                     </div>
                 </div>
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=802" alt="Sarah Miles" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">Sarah Miles</div>
-                        <div class="role">Senior Film Critic</div>
-                        <div class="bio">Award-winning critic specializing in foreign cinema and genre films.</div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=805" alt="James Carr" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">James Carr</div>
-                        <div class="role">Managing Editor</div>
-                        <div class="bio">Keeps the team running smoothly with a love for sci-fi and action blockbusters.</div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=806" alt="Priya Sharma" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">Priya Sharma</div>
-                        <div class="role">Deputy Editor</div>
-                        <div class="bio">Focuses on streaming content and the evolution of the entertainment industry.</div>
-                    </div>
-                </div>
-            </div>
 
-            <p class="dept-title">Writers &amp; Reporters</p>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=803" alt="Mike Tran" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">Mike Tran</div>
-                        <div class="role">News Editor</div>
-                        <div class="bio">Breaking entertainment news and box office coverage specialist.</div>
+                <p class="dept-title">Writers &amp; Reporters</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/mFgN43zQ/Mike-Tran-News-Editor.webp" alt="Mike Tran" loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">Mike Tran</div>
+                            <div class="role">News Editor</div>
+                            <div class="bio">Breaking entertainment news and box office coverage specialist.</div>
+                        </div>
                     </div>
-                </div>
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=804" alt="Emma Wright" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">Emma Wright</div>
-                        <div class="role">Features Writer</div>
-                        <div class="bio">Deep dives, interviews, and long-form features about cinema's biggest stories.</div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/F4XPkKh0/Emma-Wright-Features-Writer.webp" alt="Emma Wright"
+                            loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">Emma Wright</div>
+                            <div class="role">Features Writer</div>
+                            <div class="bio">Deep dives, interviews, and long-form features about cinema's biggest
+                                stories.</div>
+                        </div>
                     </div>
-                </div>
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=807" alt="Carlos Mendez" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">Carlos Mendez</div>
-                        <div class="role">TV Critic</div>
-                        <div class="bio">Your go-to expert on prestige TV drama and the golden age of streaming.</div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/3YRfgv12/Carlos-Mendez-TV-Critic.webp" alt="Carlos Mendez"
+                            loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">Carlos Mendez</div>
+                            <div class="role">TV Critic</div>
+                            <div class="bio">Your go-to expert on prestige TV drama and the golden age of streaming.
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="team-card">
-                    <img src="https://picsum.photos/300/300?random=808" alt="Anika Patel" loading="lazy">
-                    <div class="team-card-body">
-                        <div class="name">Anika Patel</div>
-                        <div class="role">Celebrity Reporter</div>
-                        <div class="bio">Covering Hollywood's biggest stars with insightful celebrity news and interviews.</div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/bMhyQ2H9/Anika-Patel-Celebrity-Reporter.webp" alt="Anika Patel"
+                            loading="lazy">
+                        <div class="team-card-body">
+                            <div class="name">Anika Patel</div>
+                            <div class="role">Celebrity Reporter</div>
+                            <div class="bio">Covering Hollywood's biggest stars with insightful celebrity news and
+                                interviews.</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     </main>
 
     <footer class="site-footer">
         <div class="footer-top-row">
-            <div class="footer-brand"><h2 class="footer-logo">NetCinema News</h2><p class="footer-tagline">Movie Reviews &amp; News</p></div>
+            <div class="footer-brand">
+                <h2 class="footer-logo">NetCinema News</h2>
+                <p class="footer-tagline">Movie Reviews &amp; News</p>
+            </div>
             <div class="footer-cols">
-                <div class="footer-col"><h4>Categories</h4><ul><li><a href="movie-reviews.html">Movie Reviews</a></li><li><a href="movie-news.html">Movie News</a></li><li><a href="box-office.html">Box Office</a></li><li><a href="trailers.html">Trailers</a></li></ul></div>
-                <div class="footer-col"><h4>TV &amp; Celebs</h4><ul><li><a href="tv-reviews.html">TV Reviews</a></li><li><a href="celebs.html">Celebs</a></li><li><a href="top-stories.html">Top Stories</a></li></ul></div>
-                <div class="footer-col"><h4>Information</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-conditions.html">Terms &amp; Conditions</a></li><li><a href="site-map.html">Site Map</a></li></ul></div>
-                <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="our-team.html">Our Team</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="advertise.html">Advertise</a></li></ul></div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="movie-reviews.html">Movie Reviews</a></li>
+                        <li><a href="movie-news.html">Movie News</a></li>
+                        <li><a href="box-office.html">Box Office</a></li>
+                        <li><a href="trailers.html">Trailers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>TV &amp; Celebs</h4>
+                    <ul>
+                        <li><a href="tv-reviews.html">TV Reviews</a></li>
+                        <li><a href="celebs.html">Celebs</a></li>
+                        <li><a href="top-stories.html">Top Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                        <li><a href="site-map.html">Site Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="our-team.html">Our Team</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="advertise.html">Advertise</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <hr class="footer-divider">
@@ -176,4 +315,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

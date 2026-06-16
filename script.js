@@ -10,6 +10,28 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 // Fallback Image
 const FALLBACK_IMAGE = 'https://via.placeholder.com/800x450?text=NetCinema';
 
+// Team Members (Authors)
+const TEAM_MEMBERS = [
+    { name: "Grant Hermanns", role: "Editor in Chief", image: "https://i.ibb.co/jvh9pF56/Grant-Hermanns-Editor-in-Chief.webp", bio: "Film veteran with 15+ years covering Hollywood's biggest releases and independent gems." },
+    { name: "Sarah Miles", role: "Senior Film Critic", image: "https://i.ibb.co/21K0VFT1/Sarah-Miles-Senior-Film-Critic.webp", bio: "Award-winning critic specializing in foreign cinema and genre films." },
+    { name: "James Carr", role: "Managing Editor", image: "https://i.ibb.co/XGDqPnc/James-Carr-Managing-Editor.webp", bio: "Keeps the team running smoothly with a love for sci-fi and action blockbusters." },
+    { name: "Priya Sharma", role: "Deputy Editor", image: "https://i.ibb.co/Kpqt4FFj/Priya-Sharma-Deputy-Editor.webp", bio: "Focuses on streaming content and the evolution of the entertainment industry." },
+    { name: "Mike Tran", role: "News Editor", image: "https://i.ibb.co/mFgN43zQ/Mike-Tran-News-Editor.webp", bio: "Breaking entertainment news and box office coverage specialist." },
+    { name: "Emma Wright", role: "Features Writer", image: "https://i.ibb.co/F4XPkKh0/Emma-Wright-Features-Writer.webp", bio: "Deep dives, interviews, and long-form features about cinema's biggest stories." },
+    { name: "Carlos Mendez", role: "TV Critic", image: "https://i.ibb.co/3YRfgv12/Carlos-Mendez-TV-Critic.webp", bio: "Your go-to expert on prestige TV drama and the golden age of streaming." },
+    { name: "Anika Patel", role: "Celebrity Reporter", image: "https://i.ibb.co/bMhyQ2H9/Anika-Patel-Celebrity-Reporter.webp", bio: "Covering Hollywood's biggest stars with insightful celebrity news and interviews." }
+];
+
+function getAuthorForArticle(slug) {
+    if (!slug) return TEAM_MEMBERS[0];
+    let hash = 0;
+    for (let i = 0; i < slug.length; i++) {
+        hash = slug.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const index = Math.abs(hash) % TEAM_MEMBERS.length;
+    return TEAM_MEMBERS[index];
+}
+
 function optimizeImage(url, width = 800) {
     if (!url) return FALLBACK_IMAGE;
     if (url.includes('lh3.googleusercontent.com')) return url.replace(/=s\d+/, `=s${width}`);
@@ -494,6 +516,23 @@ async function initArticlePage() {
     // Set Text Fields
     document.getElementById('article-title').textContent = article.title;
     document.getElementById('article-date').textContent = `ON ${formatDate(article.created_at).toUpperCase()}`;
+
+    // Set Author Fields
+    const author = getAuthorForArticle(article.slug);
+    const authorNameElem = document.getElementById('article-author');
+    if (authorNameElem) authorNameElem.textContent = `BY ${author.name.toUpperCase()}`;
+    
+    const authorImgElem = document.getElementById('article-author-img');
+    if (authorImgElem) authorImgElem.src = author.image;
+
+    const authorLargeNameElem = document.getElementById('article-author-name-large');
+    if (authorLargeNameElem) authorLargeNameElem.textContent = author.name;
+
+    const authorLargeImgElem = document.getElementById('article-author-img-large');
+    if (authorLargeImgElem) authorLargeImgElem.src = author.image;
+
+    const authorBioElem = document.getElementById('article-author-bio');
+    if (authorBioElem) authorBioElem.textContent = author.bio;
     
     // Category format
     const formattedCategory = article.category.replace(/-/g, ' ').toUpperCase();
