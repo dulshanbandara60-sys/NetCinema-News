@@ -494,6 +494,32 @@ async function initArticlePage() {
     // Set Text Fields
     document.getElementById('article-title').textContent = article.title;
     document.getElementById('article-date').textContent = `ON ${formatDate(article.created_at).toUpperCase()}`;
+    
+    // Category format
+    const formattedCategory = article.category.replace(/-/g, ' ').toUpperCase();
+    document.getElementById('article-category').textContent = `IN ${formattedCategory}`;
+    
+    // Bottom Meta
+    const metaCatElem = document.getElementById('article-meta-category');
+    if (metaCatElem) metaCatElem.textContent = `IN ${formattedCategory}`;
+    
+    const readTimeElem = document.getElementById('article-read-time');
+    if (readTimeElem) {
+        // Calculate read time: words / 200 words per min
+        const textContent = article.content.replace(/<[^>]*>?/gm, '');
+        const wordCount = textContent.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / 200);
+        readTimeElem.textContent = `READ TIME ${readTime} MINS`;
+    }
+    
+    // Dynamic Header Nav Active State
+    const navLinks = document.querySelectorAll('.header-nav a');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') && link.getAttribute('href').includes(article.category)) {
+            link.classList.add('active');
+        }
+    });
 
     // ======= Dynamic SEO Tags Update =======
     const articleUrl = `https://netcinemanews.live/article?slug=${article.slug}`;
