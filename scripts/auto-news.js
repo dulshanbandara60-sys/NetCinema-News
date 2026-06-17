@@ -161,7 +161,7 @@ async function generateRSSFeed() {
 `;
 
     for (const article of articles) {
-        const url = `https://netcinemanews.live/article?slug=${article.slug}`;
+        const url = `https://netcinemanews.live/article.html?slug=${article.slug}`;
         const pubDate = new Date(article.created_at).toUTCString();
         const imageUrl = article.cover_image || 'https://netcinemanews.live/favicon.png';
         const safeTitle = article.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
