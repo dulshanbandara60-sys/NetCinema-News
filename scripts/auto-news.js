@@ -79,7 +79,7 @@ CRITICAL RULES:
 8. [ANTI-AI DETECTION]: You must write with high burstiness and high perplexity. Vary your sentence lengths dramatically. Use a highly conversational and engaging tone. Include occasional colloquialisms or natural human nuances. Avoid repetitive AI transition words like 'Furthermore', 'In conclusion', or 'Ultimately'. Write as if you are a passionate human movie fan talking to a friend.
 
 IMPORTANT: You must return the response strictly as a JSON object with two fields:
-1. "category": Choose the most appropriate category from this exact list: 'movie-news', 'movie-reviews', 'tv-reviews', 'celebs', 'trailers'.
+1. "category": Choose the most appropriate category from this exact list: 'movie-news', 'movie-reviews', 'tv-reviews', 'celebs', 'trailers'. IF the article is primarily about Video Games or Gaming Consoles, return 'skip'.
 2. "htmlContent": The raw HTML of the rewritten article.
 
 Original Title: ${title}
@@ -225,17 +225,30 @@ async function run() {
                     console.log(`Determined Category: ${aiResult.category}`);
 
                     console.log("Inserting into Supabase...");
+                    const isSkipped = aiResult.category === 'skip';
+                    const articleStatus = isSkipped ? 'ignored' : 'published';
+                    const finalCategory = isSkipped ? 'movie-news' : aiResult.category;
+
                     const { error } = await supabase.from('articles').insert([{
                         title: item.title,
                         slug: slug,
-                        category: aiResult.category,
+                        category: finalCategory,
                         cover_image: imageUrl,
                         content: aiResult.content,
-                        status: 'published'
+                        status: articleStatus
                     }]);
 
-                    if (error) throw error;
+                    if (error) {
+                        console.error("Supabase insert error:", error);
+                        continue;
+                    }
 
+                    if (isSkipped) {
+                        console.log("Article is about Video Games. Saved as ignored to prevent reprocessing.");
+                        // Continue loop to find a real movie article
+                        continue;
+                    }
+                    
                     console.log(`Successfully published: ${item.title}`);
                     
                     // Ping Google Indexing API
