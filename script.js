@@ -129,7 +129,7 @@ async function fetchBoxOffice() {
 function renderSidebarItem(article) {
     const img = optimizeImage(article.cover_image || FALLBACK_IMAGE, 500);
     return `
-        <article class="sidebar-item" onclick="window.location.href='article.html?slug=${article.slug}'" style="cursor:pointer;">
+        <article class="sidebar-item" onclick="window.location.href='article?slug=${article.slug}'" style="cursor:pointer;">
             <div class="sidebar-item-content">
                 <span class="time">${timeAgo(article.created_at)}</span>
                 <h3>${article.title}</h3>
@@ -143,7 +143,7 @@ function renderSidebarItem(article) {
 function renderGridCard(article) {
     const img = optimizeImage(article.cover_image || FALLBACK_IMAGE, 500);
     return `
-        <article class="small-card card" onclick="window.location.href='article.html?slug=${article.slug}'" style="cursor:pointer;">
+        <article class="small-card card" onclick="window.location.href='article?slug=${article.slug}'" style="cursor:pointer;">
             <img src="${img}" alt="${article.title}" loading="lazy">
             <div class="card-content">
                 <h4>${article.title}</h4>
@@ -157,7 +157,7 @@ function renderExclusiveCard(article) {
     const img = optimizeImage(article.cover_image || FALLBACK_IMAGE, 500);
     const catLabel = article.category.toUpperCase().replace('-', ' ');
     return `
-        <article class="exclusive-card card" onclick="window.location.href='article.html?slug=${article.slug}'" style="cursor:pointer;">
+        <article class="exclusive-card card" onclick="window.location.href='article?slug=${article.slug}'" style="cursor:pointer;">
             <img src="${img}" alt="${article.title}" loading="lazy">
             <div class="card-content">
                 <span class="date" style="color:#2c5e9e; font-weight:bold; text-transform:uppercase; font-size:12px;">${catLabel}</span>
@@ -196,7 +196,7 @@ async function initHomePage() {
         const heroArt = articles[0];
         const img = optimizeImage(heroArt.cover_image || FALLBACK_IMAGE, 500);
         heroContainer.innerHTML = `
-            <article class="main-card card" onclick="window.location.href='article.html?slug=${heroArt.slug}'" style="cursor:pointer;">
+            <article class="main-card card" onclick="window.location.href='article?slug=${heroArt.slug}'" style="cursor:pointer;">
                 <img src="${img}" alt="${heroArt.title}" fetchpriority="high">
                 <div class="card-content main-content">
                     <h2>${heroArt.title}</h2>
@@ -285,7 +285,7 @@ async function initHomeCategoryReviews() {
                 const rev = mReviews[idx];
                 const img = optimizeImage(rev.cover_image || FALLBACK_IMAGE, 500);
                 return `
-                    <div class="movie-slider card" onclick="window.location.href='article.html?slug=${rev.slug}'" style="cursor:pointer;">
+                    <div class="movie-slider card" onclick="window.location.href='article?slug=${rev.slug}'" style="cursor:pointer;">
                         <img src="${img}" alt="${rev.title}" loading="lazy">
                         <div class="card-content">
                             <h3>${rev.title}</h3>
@@ -340,7 +340,7 @@ async function initHomeCategoryReviews() {
         tvList.innerHTML = tvReviews.length > 0 ? tvReviews.map(rev => {
             const img = optimizeImage(rev.cover_image || FALLBACK_IMAGE, 500);
             return `
-                <article class="review-item" onclick="window.location.href='article.html?slug=${rev.slug}'" style="cursor:pointer;">
+                <article class="review-item" onclick="window.location.href='article?slug=${rev.slug}'" style="cursor:pointer;">
                     <img src="${img}" alt="${rev.title}" loading="lazy">
                     <div class="review-info">
                         <h3>${rev.title}</h3>
@@ -370,14 +370,14 @@ async function initTopStoriesPage() {
     // Side stories (Next 4)
     const sideStories = articles.slice(1, 5);
     let sideStoriesHtml = sideStories.map(a => `
-        <div class="side-article" onclick="window.location.href='article.html?slug=${a.slug}'">
+        <div class="side-article" onclick="window.location.href='article?slug=${a.slug}'">
             <img src="${optimizeImage(a.cover_image || FALLBACK_IMAGE, 500)}" alt="${a.title}" loading="lazy">
             <div class="info"><span class="tag">Top Story</span><h3>${a.title}</h3></div>
         </div>
     `).join('');
 
     heroContainer.innerHTML = `
-        <div class="hero-article" onclick="window.location.href='article.html?slug=${hero.slug}'">
+        <div class="hero-article" onclick="window.location.href='article?slug=${hero.slug}'">
             <img src="${optimizeImage(hero.cover_image || FALLBACK_IMAGE, 500)}" alt="${hero.title}" fetchpriority="high">
             <div class="overlay">
                 <span class="tag">Top Story</span>
@@ -394,7 +394,7 @@ async function initTopStoriesPage() {
     const gridStories = articles.slice(5);
     if (gridStories.length > 0) {
         gridContainer.innerHTML = gridStories.map(a => `
-            <div class="article-card" onclick="window.location.href='article.html?slug=${a.slug}'">
+            <div class="article-card" onclick="window.location.href='article?slug=${a.slug}'">
                 <img src="${optimizeImage(a.cover_image || FALLBACK_IMAGE, 500)}" alt="${a.title}" loading="lazy">
                 <div class="article-info">
                     <span class="tag">Top Story</span>
@@ -631,7 +631,7 @@ async function initArticlePage() {
             const img = optimizeImage(news.cover_image || FALLBACK_IMAGE, 500);
             const dateStr = formatDate(news.created_at).toUpperCase();
             movieNewsContainer.innerHTML = `
-                <div class="breaking-card" onclick="window.location.href='article.html?slug=${news.slug}'" style="cursor:pointer;">
+                <div class="breaking-card" onclick="window.location.href='article?slug=${news.slug}'" style="cursor:pointer;">
                     <img src="${img}" alt="${news.title}" loading="lazy">
                     <div class="breaking-info">
                         <span class="category-tag">MOVIE NEWS</span>
@@ -653,7 +653,7 @@ async function initArticlePage() {
             const img = optimizeImage(post.cover_image || FALLBACK_IMAGE, 500);
             const dateStr = formatDate(post.created_at).toUpperCase();
             return `
-                <div class="popular-item" onclick="window.location.href='article.html?slug=${post.slug}'" style="cursor:pointer;">
+                <div class="popular-item" onclick="window.location.href='article?slug=${post.slug}'" style="cursor:pointer;">
                     <img src="${img}" alt="${post.title}" loading="lazy">
                     <div class="popular-info">
                         <h4>${post.title}</h4>
@@ -674,7 +674,7 @@ async function initArticlePage() {
         const related = otherArticles.slice(0, 3);
         if (related.length > 0) {
             relatedContainer.innerHTML = related.map(r => `
-                <div class="related-card" onclick="window.location.href='article.html?slug=${r.slug}'" style="cursor:pointer;">
+                <div class="related-card" onclick="window.location.href='article?slug=${r.slug}'" style="cursor:pointer;">
                     <img src="${optimizeImage(r.cover_image || FALLBACK_IMAGE, 500)}" alt="${r.title}" loading="lazy">
                     <div class="related-info">
                         <h4>${r.title}</h4>
@@ -695,7 +695,7 @@ async function initArticlePage() {
         const prevPost = catArticles[currentIndex + 1]; // older post
         prevPostElem.querySelector('img').src = optimizeImage(prevPost.cover_image || FALLBACK_IMAGE, 500);
         prevPostElem.querySelector('.nav-post-info').innerHTML = `<span class="nav-label">PREVIOUS POST</span><h4>${prevPost.title}</h4>`;
-        prevPostElem.href = `article.html?slug=${prevPost.slug}`;
+        prevPostElem.href = `article?slug=${prevPost.slug}`;
         prevPostElem.style.visibility = 'visible';
     }
 
@@ -704,7 +704,7 @@ async function initArticlePage() {
         const nextPost = catArticles[currentIndex - 1]; // newer post
         nextPostElem.querySelector('img').src = optimizeImage(nextPost.cover_image || FALLBACK_IMAGE, 500);
         nextPostElem.querySelector('.nav-post-info').innerHTML = `<span class="nav-label">NEXT POST</span><h4>${nextPost.title}</h4>`;
-        nextPostElem.href = `article.html?slug=${nextPost.slug}`;
+        nextPostElem.href = `article?slug=${nextPost.slug}`;
         nextPostElem.style.visibility = 'visible';
     }
 }
@@ -783,5 +783,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initArticlePage();
     }
 });
+
 
 
