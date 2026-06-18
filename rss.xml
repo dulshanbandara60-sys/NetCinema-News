@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 18:31:43 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 19:32:27 GMT</lastBuildDate>
 
+    <item>
+        <title>Quentin Tarantino’s Love Letter to the Western: How He Revived a Six‑Season Masterpiece</title>
+        <link>https://netcinemanews.live/article?slug=quentin-tarantino-s-favorite-tv-western-is-a-6-part-masterpiece-he-helped-revive</link>
+        <guid>https://netcinemanews.live/article?slug=quentin-tarantino-s-favorite-tv-western-is-a-6-part-masterpiece-he-helped-revive</guid>
+        <pubDate>Thu, 18 Jun 2026 19:32:26 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/quentin-tarantino-as-ringo-in-django-unchained.jpg" medium="image" />
+    </item>
     <item>
         <title>Six Months Until the End of a $1 B Sci‑Fi Saga: What Fans Can Expect</title>
         <link>https://netcinemanews.live/article?slug=we-re-officially-6-months-away-from-a-1-billion-sci-fi-franchise-ending-an-era</link>
@@ -158,14 +166,6 @@
         <pubDate>Thu, 18 Jun 2026 01:50:21 GMT</pubDate>
         <category>celebs</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/06/patricia-iii.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Will ‘Austin Powers 4’ Ever Happen? Franchise Mainstays Reveal What They Know - The Hollywood Reporter</title>
-        <link>https://netcinemanews.live/article?slug=will-austin-powers-4-ever-happen-franchise-mainstays-reveal-what-they-know-the-hollywood-reporter</link>
-        <guid>https://netcinemanews.live/article?slug=will-austin-powers-4-ever-happen-franchise-mainstays-reveal-what-they-know-the-hollywood-reporter</guid>
-        <pubDate>Thu, 18 Jun 2026 00:31:23 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://s.yimg.com/ny/api/res/1.2/PkqKVpHaIlxymfUbKlLuvg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzY7Y2Y9d2VicA--/https://media.zenfs.com/en/the_hollywood_reporter_217/60a23ba28a31c2bb804712b02fabdf0f" medium="image" />
     </item>
 </channel>
 </rss>
