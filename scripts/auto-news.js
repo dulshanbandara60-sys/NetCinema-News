@@ -150,7 +150,7 @@ async function generateSitemap() {
 
         if (error) throw error;
 
-        let sitemapContent = <?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n;
+        let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
         const staticUrls = [
             { loc: "https://netcinemanews.live/", freq: "daily", prio: "1.0" },
             { loc: "https://netcinemanews.live/about.html", freq: "monthly", prio: "0.8" },
@@ -170,15 +170,15 @@ async function generateSitemap() {
         ];
 
         for (const u of staticUrls) {
-            sitemapContent +=     <url>\n        <loc> + u.loc + </loc>\n        <changefreq> + u.freq + </changefreq>\n        <priority> + u.prio + </priority>\n    </url>\n;
+            sitemapContent += `    <url>\n        <loc>` + u.loc + `</loc>\n        <changefreq>` + u.freq + `</changefreq>\n        <priority>` + u.prio + `</priority>\n    </url>\n`;
         }
 
         for (const article of articles) {
             const dateStr = new Date(article.created_at).toISOString().split('T')[0];
-            sitemapContent +=     <url>\n        <loc>https://netcinemanews.live/article?slug= + article.slug + </loc>\n        <lastmod> + dateStr + </lastmod>\n        <changefreq>monthly</changefreq>\n        <priority>0.7</priority>\n    </url>\n;
+            sitemapContent += `    <url>\n        <loc>https://netcinemanews.live/article?slug=` + article.slug + `</loc>\n        <lastmod>` + dateStr + `</lastmod>\n        <changefreq>monthly</changefreq>\n        <priority>0.7</priority>\n    </url>\n`;
         }
 
-        sitemapContent += </urlset>;
+        sitemapContent += `</urlset>`;
         fs.writeFileSync('sitemap.xml', sitemapContent, 'utf8');
         console.log("sitemap.xml generated successfully with " + articles.length + " dynamic articles.");
     } catch (e) {
