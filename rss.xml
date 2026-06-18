@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 22:31:27 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 23:32:49 GMT</lastBuildDate>
 
+    <item>
+        <title>James Bond Launches a New Era on Netflix: What This Means for the 007 Legacy</title>
+        <link>https://netcinemanews.live/article?slug=james-bond-officially-starts-a-new-era-on-netflix</link>
+        <guid>https://netcinemanews.live/article?slug=james-bond-officially-starts-a-new-era-on-netflix</guid>
+        <pubDate>Thu, 18 Jun 2026 23:32:49 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/daniel-craig-s-james-bond-in-europe.jpg" medium="image" />
+    </item>
     <item>
         <title>Severance Stuck in a Time‑Warp: Apple TV+’s Sci‑Fi Gem Won’t Stream Again Until 2027</title>
         <link>https://netcinemanews.live/article?slug=apple-tv-s-most-beloved-sci-fi-mystery-is-stuck-in-limbo</link>
@@ -158,14 +166,6 @@
         <pubDate>Thu, 18 Jun 2026 05:19:58 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://m.media-amazon.com/images/M/MV5BNjE1Y2RiNjQtNGViNy00YzAzLWExZjMtOTczN2JkZDNkN2VmXkEyXkFqcGc@._V1_.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Alan Ritchson's Big Reacher Exit: What's Next for the Beloved TV Series?</title>
-        <link>https://netcinemanews.live/article?slug=after-4-years-reacher-will-soon-switch-main-characters</link>
-        <guid>https://netcinemanews.live/article?slug=after-4-years-reacher-will-soon-switch-main-characters</guid>
-        <pubDate>Thu, 18 Jun 2026 04:31:39 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/2761fc99-da29-48cc-b622-8272e674d339.jpeg" medium="image" />
     </item>
 </channel>
 </rss>
