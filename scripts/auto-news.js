@@ -18,10 +18,8 @@ const parser = new Parser({
 });
 
 const RSS_FEEDS = [
-    { category: 'movie-news', url: 'https://news.google.com/rss/search?q=movie+news+when:24h&hl=en-US&gl=US&ceid=US:en' },
-    { category: 'movie-reviews', url: 'https://news.google.com/rss/search?q=movie+review+when:24h&hl=en-US&gl=US&ceid=US:en' },
-    { category: 'tv-reviews', url: 'https://news.google.com/rss/search?q=tv+show+review+when:24h&hl=en-US&gl=US&ceid=US:en' },
-    { category: 'celebs', url: 'https://news.google.com/rss/search?q=hollywood+celebrity+news+when:24h&hl=en-US&gl=US&ceid=US:en' }
+    'https://screenrant.com/feed/',
+    'https://collider.com/feed/'
 ];
 
 function generateSlug(title) {
@@ -67,21 +65,24 @@ async function notifyGoogleIndex(url) {
     }
 }
 
-async function humanizeArticle(title, description, creator, targetCategory, retries = 3) {
+async function humanizeArticle(title, description, creator, retries = 3) {
     const prompt = `
-You are a top-tier entertainment journalist for "NetCinema News". Rewrite the following news snippet into a highly engaging, humanized, and SEO-friendly article for the category: "${targetCategory}".
+You are a top-tier entertainment journalist for "NetCinema News". Rewrite the following news snippet into a highly engaging, humanized, and SEO-friendly article.
 CRITICAL RULES:
 1. You MUST include all the real facts, names, and details from the provided snippet. DO NOT invent fake news.
-2. The provided snippet is very short. You MUST use your expansive knowledge about movies, TV shows, and celebrities to expand this into a comprehensive, detailed article aiming for around 600 words. Provide background context, previous movies of the actors/directors, or fan expectations.
+2. You MUST use your expansive knowledge about movies, TV shows, and celebrities to expand this into a comprehensive, detailed article aiming for around 600 words. Provide background context, previous movies of the actors/directors, or fan expectations.
 3. Make it sound exciting, professional, and unique. 
 4. Identify and naturally integrate high-volume SEO ranking keywords related to the movie, actors, or topic throughout the article to maximize Google Search visibility.
-5. Do not mention the original source like Google News.
+5. Do not mention the original source like ScreenRant or Collider.
 6. Use HTML tags for formatting (e.g., <p>, <h2>, <strong>, <ul>, <li>).
 7. DO NOT include <!DOCTYPE html>, <html>, <head>, or <body> tags. Only output the inner HTML content.
 8. [ANTI-AI DETECTION]: You must write with high burstiness and high perplexity. Vary your sentence lengths dramatically. Use a highly conversational and engaging tone. Include occasional colloquialisms or natural human nuances. Avoid repetitive AI transition words like 'Furthermore', 'In conclusion', or 'Ultimately'. Write as if you are a passionate human movie fan talking to a friend.
-9. IF the snippet is primarily about Video Games or Gaming Consoles, return an empty string for htmlContent.
+9. IF the snippet is primarily about Video Games or Gaming Consoles, return 'skip' for the category.
 
-IMPORTANT: You must return the response strictly as a JSON object with TWO fields:\n1. "title": A new, catchy, SEO-friendly title for the article. DO NOT include the original source name (e.g., remove "The Hollywood Reporter" or "Variety").\n2. "htmlContent": The raw HTML of the rewritten article.
+IMPORTANT: You must return the response strictly as a JSON object with THREE fields:
+1. "category": Choose the most appropriate category from this exact list: 'movie-news', 'movie-reviews', 'tv-reviews', 'celebs'. If it's a video game, return 'skip'.
+2. "title": A new, catchy, SEO-friendly title for the article. DO NOT include the original source name (e.g., remove "ScreenRant" or "Collider").
+3. "htmlContent": The raw HTML of the rewritten article.
 
 Original Title: ${title}
 Original Snippet: ${description}
@@ -122,9 +123,9 @@ Original Snippet: ${description}
 
             const parsed = JSON.parse(resultText);
             return {
-                category: targetCategory,
+                category: parsed.category || 'movie-news',
                 title: parsed.title || title.split(" - ")[0],
-                content: parsed.htmlContent || ""'
+                content: parsed.htmlContent || ''
             };
         } catch (e) {
             console.error(`Attempt ${attempt} failed to generate valid JSON:`, e.message);
@@ -196,12 +197,12 @@ async function run() {
 
         console.log("Starting Auto-News Fetcher...");
         let newArticleImported = false;
-
-        for (const feedConfig of RSS_FEEDS) {
+        const shuffledFeeds = RSS_FEEDS.sort(() => 0.5 - Math.random());
+        for (const feedUrl of shuffledFeeds) {
             if (newArticleImported) break;
             
-            console.log(`Fetching RSS for ${feedConfig.category}: ${feedConfig.url}`);
-            const feed = await parser.parseURL(feedConfig.url);
+            console.log(`Fetching RSS: ${feedUrl}`);
+            const feed = await parser.parseURL(feedUrl);
 
             for (const item of feed.items) {
                 if (!item.title) continue;
@@ -213,7 +214,7 @@ async function run() {
                     console.log(`Found new article: ${item.title}`);
                     
                     console.log("Humanizing content with AI...");
-                    const aiResult = await humanizeArticle(item.title, item.content || item.contentSnippet || item.description || '', item.creator || '', feedConfig.category);
+                    const aiResult = await humanizeArticle(item.title, item.content || item.contentSnippet || item.description || '', item.creator || '');
 
                     let imageUrl = '';
                     if (item.mediaContent && item.mediaContent.length > 0) {
@@ -221,38 +222,32 @@ async function run() {
                     } else if (item.enclosure && item.enclosure.url) {
                         imageUrl = item.enclosure.url;
                     } else {
-                        const cleanTitle = (aiResult && aiResult.title) ? aiResult.title : item.title.split(" - ")[0];
-                        const encodedTitle = encodeURIComponent(cleanTitle + " realistic cinematic movie photo");
-                        imageUrl = `https://image.pollinations.ai/prompt/${encodedTitle}?width=800&height=450&nologo=true`;
+                        imageUrl = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=800&auto=format&fit=crop';
                     }
 
-                    if (!aiResult.content || aiResult.content.trim() === '') {
-                        console.log("Article skipped (likely video game or AI declined to generate). Saved as ignored.");
-                        const { error } = await supabase.from('articles').insert([{
-                            title: aiResult.title || item.title.split(" - ")[0],
-                            slug: slug,
-                            category: aiResult.category,
-                            cover_image: imageUrl,
-                            content: 'Skipped content',
-                            status: 'ignored'
-                        }]);
-                        continue;
-                    }
+                    const isSkipped = aiResult.category === 'skip' || (!aiResult.content || aiResult.content.trim() === '');
+                    const articleStatus = isSkipped ? 'ignored' : 'published';
+                    const finalCategory = isSkipped ? 'movie-news' : aiResult.category;
 
-                    console.log(`Target Category: ${aiResult.category}`);
+                    console.log(`Target Category: ${finalCategory}`);
 
                     console.log("Inserting into Supabase...");
                     const { error } = await supabase.from('articles').insert([{
                         title: aiResult.title || item.title.split(" - ")[0],
                         slug: slug,
-                        category: aiResult.category,
+                        category: finalCategory,
                         cover_image: imageUrl,
-                        content: aiResult.content,
-                        status: 'published'
+                        content: isSkipped ? 'Skipped content' : aiResult.content,
+                        status: articleStatus
                     }]);
 
                     if (error) {
                         console.error("Supabase insert error:", error);
+                        continue;
+                    }
+
+                    if (isSkipped) {
+                        console.log("Article skipped (video game or empty content). Saved as ignored.");
                         continue;
                     }
                     
