@@ -112,6 +112,11 @@ Original Snippet: ${description}
             }
 
             const jsonResponse = await response.json();
+            
+            if (!jsonResponse.choices || !jsonResponse.choices[0] || !jsonResponse.choices[0].message || !jsonResponse.choices[0].message.content) {
+                throw new Error("Invalid AI response: " + JSON.stringify(jsonResponse));
+            }
+
             let resultText = jsonResponse.choices[0].message.content.trim();
             
             // Clean up common markdown formatting if the model wrapped it in ```json
@@ -130,7 +135,12 @@ Original Snippet: ${description}
         } catch (e) {
             console.error(`Attempt ${attempt} failed to generate valid JSON:`, e.message);
             if (attempt === retries) {
-                throw new Error("Failed to generate valid article after multiple attempts.");
+                console.error("Giving up after multiple retries. Storing empty content to skip.");
+                return {
+                    category: 'skip',
+                    title: title.split(" - ")[0],
+                    content: ''
+                };
             }
             console.log("Retrying...");
             // Wait 2 seconds before retrying
