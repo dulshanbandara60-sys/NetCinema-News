@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 09:35:51 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 10:30:57 GMT</lastBuildDate>
 
+    <item>
+        <title>The Ultimate List: 25 Millennial Movies That Defined a Generation</title>
+        <link>https://netcinemanews.live/article?slug=25-best-millennial-movies-that-defined-a-generation</link>
+        <guid>https://netcinemanews.live/article?slug=25-best-millennial-movies-that-defined-a-generation</guid>
+        <pubDate>Thu, 18 Jun 2026 10:30:56 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/03/mean-girls.jpg" medium="image" />
+    </item>
     <item>
         <title>Netflix's Percy Jackson Remake: A 13-Year Triumph Over Critics</title>
         <link>https://netcinemanews.live/article?slug=13-years-later-netflix-is-officially-proving-percy-jackson-s-critics-wrong</link>
@@ -158,14 +166,6 @@
         <pubDate>Wed, 17 Jun 2026 05:31:35 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/01/the-lord-of-the-rings-the-fellowship-of-the-ring_0408e554-1.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Doug Jones Explains Why Hellboy 3 With Ron Perlman Won't Happen </title>
-        <link>https://netcinemanews.live/article?slug=doug-jones-explains-why-hellboy-3-with-ron-perlman-won-t-happen</link>
-        <guid>https://netcinemanews.live/article?slug=doug-jones-explains-why-hellboy-3-with-ron-perlman-won-t-happen</guid>
-        <pubDate>Wed, 17 Jun 2026 04:31:52 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/hellboy_52922f6f.jpg" medium="image" />
     </item>
 </channel>
 </rss>
