@@ -212,17 +212,19 @@ async function run() {
                 if (!exists) {
                     console.log(`Found new article: ${item.title}`);
                     
+                    console.log("Humanizing content with AI...");
+                    const aiResult = await humanizeArticle(item.title, item.content || item.contentSnippet || item.description || '', item.creator || '', feedConfig.category);
+
                     let imageUrl = '';
                     if (item.mediaContent && item.mediaContent.length > 0) {
                         imageUrl = item.mediaContent[0].$.url;
                     } else if (item.enclosure && item.enclosure.url) {
                         imageUrl = item.enclosure.url;
                     } else {
-                        imageUrl = 'https://via.placeholder.com/800x450?text=NetCinema+News';
+                        const cleanTitle = (aiResult && aiResult.title) ? aiResult.title : item.title.split(" - ")[0];
+                        const encodedTitle = encodeURIComponent(cleanTitle + " realistic cinematic movie photo");
+                        imageUrl = `https://image.pollinations.ai/prompt/${encodedTitle}?width=800&height=450&nologo=true`;
                     }
-
-                    console.log("Humanizing content with AI...");
-                    const aiResult = await humanizeArticle(item.title, item.content || item.contentSnippet || item.description || '', item.creator || '', feedConfig.category);
 
                     if (!aiResult.content || aiResult.content.trim() === '') {
                         console.log("Article skipped (likely video game or AI declined to generate). Saved as ignored.");
@@ -280,6 +282,7 @@ async function run() {
 }
 
 run();
+
 
 
 
