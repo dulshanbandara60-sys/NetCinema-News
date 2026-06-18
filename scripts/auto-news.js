@@ -139,6 +139,53 @@ Original Snippet: ${description}
     }
 }
 
+async function generateSitemap() {
+    try {
+        console.log("Generating sitemap.xml...");
+        const { data: articles, error } = await supabase
+            .from('articles')
+            .select('slug, created_at')
+            .eq('status', 'published')
+            .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        let sitemapContent = <?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n;
+        const staticUrls = [
+            { loc: "https://netcinemanews.live/", freq: "daily", prio: "1.0" },
+            { loc: "https://netcinemanews.live/about.html", freq: "monthly", prio: "0.8" },
+            { loc: "https://netcinemanews.live/contact.html", freq: "monthly", prio: "0.8" },
+            { loc: "https://netcinemanews.live/our-team.html", freq: "monthly", prio: "0.7" },
+            { loc: "https://netcinemanews.live/advertise.html", freq: "monthly", prio: "0.7" },
+            { loc: "https://netcinemanews.live/movie-reviews.html", freq: "daily", prio: "0.9" },
+            { loc: "https://netcinemanews.live/movie-news.html", freq: "daily", prio: "0.9" },
+            { loc: "https://netcinemanews.live/tv-reviews.html", freq: "daily", prio: "0.9" },
+            { loc: "https://netcinemanews.live/box-office.html", freq: "weekly", prio: "0.8" },
+            { loc: "https://netcinemanews.live/trailers.html", freq: "weekly", prio: "0.8" },
+            { loc: "https://netcinemanews.live/celebs.html", freq: "daily", prio: "0.8" },
+            { loc: "https://netcinemanews.live/top-stories.html", freq: "daily", prio: "0.9" },
+            { loc: "https://netcinemanews.live/privacy-policy.html", freq: "yearly", prio: "0.5" },
+            { loc: "https://netcinemanews.live/terms-conditions.html", freq: "yearly", prio: "0.5" },
+            { loc: "https://netcinemanews.live/site-map.html", freq: "weekly", prio: "0.6" }
+        ];
+
+        for (const u of staticUrls) {
+            sitemapContent +=     <url>\n        <loc> + u.loc + </loc>\n        <changefreq> + u.freq + </changefreq>\n        <priority> + u.prio + </priority>\n    </url>\n;
+        }
+
+        for (const article of articles) {
+            const dateStr = new Date(article.created_at).toISOString().split('T')[0];
+            sitemapContent +=     <url>\n        <loc>https://netcinemanews.live/article?slug= + article.slug + </loc>\n        <lastmod> + dateStr + </lastmod>\n        <changefreq>monthly</changefreq>\n        <priority>0.7</priority>\n    </url>\n;
+        }
+
+        sitemapContent += </urlset>;
+        fs.writeFileSync('sitemap.xml', sitemapContent, 'utf8');
+        console.log("sitemap.xml generated successfully with " + articles.length + " dynamic articles.");
+    } catch (e) {
+        console.error("Error generating sitemap:", e.message);
+    }
+}
+
 async function generateRSSFeed() {
     console.log("Generating RSS Feed...");
     const { data: articles, error } = await supabase
@@ -265,6 +312,7 @@ async function run() {
 
         if (newArticleImported) {
             await generateRSSFeed();
+            await generateSitemap();
             console.log("Auto-News Fetcher finished successfully.");
         } else {
             console.log("No new articles found across all feeds.");
@@ -277,6 +325,7 @@ async function run() {
 }
 
 run();
+
 
 
 
