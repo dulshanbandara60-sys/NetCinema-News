@@ -81,8 +81,7 @@ CRITICAL RULES:
 8. [ANTI-AI DETECTION]: You must write with high burstiness and high perplexity. Vary your sentence lengths dramatically. Use a highly conversational and engaging tone. Include occasional colloquialisms or natural human nuances. Avoid repetitive AI transition words like 'Furthermore', 'In conclusion', or 'Ultimately'. Write as if you are a passionate human movie fan talking to a friend.
 9. IF the snippet is primarily about Video Games or Gaming Consoles, return an empty string for htmlContent.
 
-IMPORTANT: You must return the response strictly as a JSON object with one field:
-1. "htmlContent": The raw HTML of the rewritten article.
+IMPORTANT: You must return the response strictly as a JSON object with TWO fields:\n1. "title": A new, catchy, SEO-friendly title for the article. DO NOT include the original source name (e.g., remove "The Hollywood Reporter" or "Variety").\n2. "htmlContent": The raw HTML of the rewritten article.
 
 Original Title: ${title}
 Original Snippet: ${description}
@@ -124,7 +123,8 @@ Original Snippet: ${description}
             const parsed = JSON.parse(resultText);
             return {
                 category: targetCategory,
-                content: parsed.htmlContent || ''
+                title: parsed.title || title.split(" - ")[0],
+                content: parsed.htmlContent || ""'
             };
         } catch (e) {
             console.error(`Attempt ${attempt} failed to generate valid JSON:`, e.message);
@@ -227,7 +227,7 @@ async function run() {
                     if (!aiResult.content || aiResult.content.trim() === '') {
                         console.log("Article skipped (likely video game or AI declined to generate). Saved as ignored.");
                         const { error } = await supabase.from('articles').insert([{
-                            title: item.title,
+                            title: aiResult.title || item.title.split(" - ")[0],
                             slug: slug,
                             category: aiResult.category,
                             cover_image: imageUrl,
@@ -241,7 +241,7 @@ async function run() {
 
                     console.log("Inserting into Supabase...");
                     const { error } = await supabase.from('articles').insert([{
-                        title: item.title,
+                        title: aiResult.title || item.title.split(" - ")[0],
                         slug: slug,
                         category: aiResult.category,
                         cover_image: imageUrl,
@@ -280,5 +280,6 @@ async function run() {
 }
 
 run();
+
 
 
