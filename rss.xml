@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jun 2026 15:31:41 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 16:39:15 GMT</lastBuildDate>
 
+    <item>
+        <title>Steven Spielberg’s ‘Disclosure Day’ Soars—An Exciting Prelude to His Next Epic Adventure</title>
+        <link>https://netcinemanews.live/article?slug=disclosure-day-s-box-office-is-a-promising-sign-for-steven-spielberg-s-next-movie</link>
+        <guid>https://netcinemanews.live/article?slug=disclosure-day-s-box-office-is-a-promising-sign-for-steven-spielberg-s-next-movie</guid>
+        <pubDate>Fri, 19 Jun 2026 16:39:15 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/mcddida_uv015-cropped.jpg" medium="image" />
+    </item>
     <item>
         <title>Steve Harrington’s Spot in Stranger Things Replaced by a New Star—Here’s the Inside Scoop</title>
         <link>https://netcinemanews.live/article?slug=netflix-stranger-things-steve-harrington-recast-for-new-episodes-is-perfect</link>
@@ -158,14 +166,6 @@
         <pubDate>Thu, 18 Jun 2026 23:32:49 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/daniel-craig-s-james-bond-in-europe.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Severance Stuck in a Time‑Warp: Apple TV+’s Sci‑Fi Gem Won’t Stream Again Until 2027</title>
-        <link>https://netcinemanews.live/article?slug=apple-tv-s-most-beloved-sci-fi-mystery-is-stuck-in-limbo</link>
-        <guid>https://netcinemanews.live/article?slug=apple-tv-s-most-beloved-sci-fi-mystery-is-stuck-in-limbo</guid>
-        <pubDate>Thu, 18 Jun 2026 22:31:26 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/04/severance-james-le-gros.jpg" medium="image" />
     </item>
 </channel>
 </rss>
