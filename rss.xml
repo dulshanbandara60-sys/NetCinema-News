@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jun 2026 07:32:45 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 08:31:43 GMT</lastBuildDate>
 
+    <item>
+        <title>Ridley Scott's Body of Lies: A Forgotten Masterpiece That Deserves Your Attention</title>
+        <link>https://netcinemanews.live/article?slug=ridley-scott-s-greatest-crime-epic-is-still-his-most-overlooked-thriller-masterpiece</link>
+        <guid>https://netcinemanews.live/article?slug=ridley-scott-s-greatest-crime-epic-is-still-his-most-overlooked-thriller-masterpiece</guid>
+        <pubDate>Fri, 19 Jun 2026 08:31:43 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2025/07/hoffman-russell-crowe-and-ferris-leonardo-dicaprio-in-body-of-lies.jpg" medium="image" />
+    </item>
     <item>
         <title>Colin Farrell Saves Apple TV+'s Sugar Season 2 From Identity Crisis – Review</title>
         <link>https://netcinemanews.live/article?slug=apple-tv-s-sugar-sidelines-its-boldest-sci-fi-swing-in-season-2-review</link>
@@ -158,14 +166,6 @@
         <pubDate>Thu, 18 Jun 2026 13:31:46 GMT</pubDate>
         <category>tv reviews</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/06/criminal-minds-kirsten-vangsness.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Michael C. Hall Announces the Final Chapter of Dexter: Resurrection in Season 2</title>
-        <link>https://netcinemanews.live/article?slug=dexter-morgan-is-officially-ending-a-franchise-long-story-in-dexter-resurrection-season-2</link>
-        <guid>https://netcinemanews.live/article?slug=dexter-morgan-is-officially-ending-a-franchise-long-story-in-dexter-resurrection-season-2</guid>
-        <pubDate>Thu, 18 Jun 2026 12:32:50 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/dexter-sitting-at-a-diner-across-from-harrison-in-dexter-resurrection-season-1.jpg" medium="image" />
     </item>
 </channel>
 </rss>
