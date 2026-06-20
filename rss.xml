@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2026 21:31:49 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2026 22:31:26 GMT</lastBuildDate>
 
+    <item>
+        <title>Dave Bautista’s ‘Afterburn’: From Mad Max Fallback to Streaming Sensation</title>
+        <link>https://netcinemanews.live/article?slug=fallout-meets-mad-max-in-mcu-star-s-criminally-underrated-sci-fi-thriller</link>
+        <guid>https://netcinemanews.live/article?slug=fallout-meets-mad-max-in-mcu-star-s-criminally-underrated-sci-fi-thriller</guid>
+        <pubDate>Sat, 20 Jun 2026 22:31:25 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/01/afterburn.jpg" medium="image" />
+    </item>
     <item>
         <title>Hidden Gems: 10 Psychological Thrillers That Deserve a 10/10 Rating</title>
         <link>https://netcinemanews.live/article?slug=10-forgotten-psychological-thrillers-that-are-10-10-no-notes</link>
@@ -158,14 +166,6 @@
         <pubDate>Sat, 20 Jun 2026 03:31:07 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2022/06/movies-ncrawler-103114-superJumbo.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Stranger Things Star Jamie Campbell Brown Reveals Shocking Vecna Death Secret Tied to The First Shadow Stage Show</title>
-        <link>https://netcinemanews.live/article?slug=stranger-things-actor-reveals-how-vecna-s-death-almost-called-back-to-prequel</link>
-        <guid>https://netcinemanews.live/article?slug=stranger-things-actor-reveals-how-vecna-s-death-almost-called-back-to-prequel</guid>
-        <pubDate>Sat, 20 Jun 2026 02:31:38 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/01/vecna-in-stranger-things-season-5.jpg" medium="image" />
     </item>
 </channel>
 </rss>
