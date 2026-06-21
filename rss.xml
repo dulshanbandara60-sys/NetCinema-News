@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jun 2026 16:33:05 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 17:31:35 GMT</lastBuildDate>
 
+    <item>
+        <title>HBO’s Epic Western Gets a Star-Studded Cast That Fans Are Raving About</title>
+        <link>https://netcinemanews.live/article?slug=hbo-s-3-part-western-masterpiece-has-one-of-its-best-casts</link>
+        <guid>https://netcinemanews.live/article?slug=hbo-s-3-part-western-masterpiece-has-one-of-its-best-casts</guid>
+        <pubDate>Sun, 21 Jun 2026 17:31:35 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/deadwood_3m4fhz.jpg" medium="image" />
+    </item>
     <item>
         <title>From Krypton to the Big Screen: How Superman’s Death Sparked a Solo Film Revolution</title>
         <link>https://netcinemanews.live/article?slug=29-years-later-dc-s-weirdest-superman-movie-has-aged-like-milk</link>
@@ -158,14 +166,6 @@
         <pubDate>Sun, 21 Jun 2026 00:39:08 GMT</pubDate>
         <category>tv reviews</category>
         <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/911df1b4-2583-4a09-a9c9-a930ea2f1174.jpeg" medium="image" />
-    </item>
-    <item>
-        <title>Hulu’s Hidden Gem: The Must‑Watch Anime That’s Stealing the Spotlight from Demon Slayer</title>
-        <link>https://netcinemanews.live/article?slug=demon-slayer-infinity-castle-s-replacement-is-one-of-hulu-s-best-kept-secret</link>
-        <guid>https://netcinemanews.live/article?slug=demon-slayer-infinity-castle-s-replacement-is-one-of-hulu-s-best-kept-secret</guid>
-        <pubDate>Sat, 20 Jun 2026 23:31:03 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/tanjiro-a_00000.jpg" medium="image" />
     </item>
 </channel>
 </rss>
