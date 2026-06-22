@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jun 2026 23:32:47 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 00:33:16 GMT</lastBuildDate>
 
+    <item>
+        <title>Star Trek's Future Bright: How the Franchise is Preparing for Its Next Big Leap</title>
+        <link>https://netcinemanews.live/article?slug=it-s-official-star-trek-isn-t-over-yet</link>
+        <guid>https://netcinemanews.live/article?slug=it-s-official-star-trek-isn-t-over-yet</guid>
+        <pubDate>Mon, 22 Jun 2026 00:33:15 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/anson-mount-as-captain-christopher-pike-in-star-trek-strange-new-worlds-season-3.jpg" medium="image" />
+    </item>
     <item>
         <title>Crunchyroll Unleashes the Fresh Romance Hit ‘Smoking Behind the Supermarket With You’ – A Must‑Watch Anime for Mature Teens</title>
         <link>https://netcinemanews.live/article?slug=smoking-behind-the-supermarket-with-you-has-finally-landed-on-crunchyroll-and-it-s-a-new-classic</link>
@@ -158,14 +166,6 @@
         <pubDate>Sun, 21 Jun 2026 05:32:23 GMT</pubDate>
         <category>tv reviews</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/05/the-boys-antony-starr.jpg" medium="image" />
-    </item>
-    <item>
-        <title>2020s Dark Fantasy Anime: The Must-Watch Picks That Are Redefining the Genre</title>
-        <link>https://netcinemanews.live/article?slug=10-greatest-dark-fantasy-anime-of-the-2020s</link>
-        <guid>https://netcinemanews.live/article?slug=10-greatest-dark-fantasy-anime-of-the-2020s</guid>
-        <pubDate>Sun, 21 Jun 2026 04:34:51 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/yuji-itadori-from-jujutsu-kaisen-next-to-gabimaru-from-hell-s-paradise-and-caiman-from-dorohedoro.jpg" medium="image" />
     </item>
 </channel>
 </rss>
