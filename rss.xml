@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2026 09:33:14 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 10:32:33 GMT</lastBuildDate>
 
+    <item>
+        <title>HBO's New 8-Part Crime Thriller Promises Sopranos-Level Intensity with a Scarface Edge</title>
+        <link>https://netcinemanews.live/article?slug=the-sopranos-meets-scarface-in-hbo-s-8-part-crime-thriller-series</link>
+        <guid>https://netcinemanews.live/article?slug=the-sopranos-meets-scarface-in-hbo-s-8-part-crime-thriller-series</guid>
+        <pubDate>Mon, 22 Jun 2026 10:32:33 GMT</pubDate>
+        <category>tv reviews</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/cristin-milioti-in-the-penguin.jpg" medium="image" />
+    </item>
     <item>
         <title>Dragon Ball’s Super Saiyan Moment Turns 35: How Goku’s Golden Roar Still Shapes Anime</title>
         <link>https://netcinemanews.live/article?slug=35-years-ago-dragon-ball-changed-anime-forever-with-one-moment-the-series-never-topped</link>
@@ -158,14 +166,6 @@
         <pubDate>Sun, 21 Jun 2026 18:32:15 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/06/the-choral-ralph-fiennes.jpg" medium="image" />
-    </item>
-    <item>
-        <title>HBO’s Epic Western Gets a Star-Studded Cast That Fans Are Raving About</title>
-        <link>https://netcinemanews.live/article?slug=hbo-s-3-part-western-masterpiece-has-one-of-its-best-casts</link>
-        <guid>https://netcinemanews.live/article?slug=hbo-s-3-part-western-masterpiece-has-one-of-its-best-casts</guid>
-        <pubDate>Sun, 21 Jun 2026 17:31:35 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/deadwood_3m4fhz.jpg" medium="image" />
     </item>
 </channel>
 </rss>
