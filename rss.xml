@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2026 11:32:01 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 12:31:20 GMT</lastBuildDate>
 
+    <item>
+        <title>DC Unveils a God‑Tier Speedster Who Leaves The Flash in the Dust – What It Means for the DCU</title>
+        <link>https://netcinemanews.live/article?slug=dc-crowns-a-new-god-tier-speedster-faster-than-the-flash</link>
+        <guid>https://netcinemanews.live/article?slug=dc-crowns-a-new-god-tier-speedster-faster-than-the-flash</guid>
+        <pubDate>Tue, 23 Jun 2026 12:31:19 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/barry-allen-smiles-and-opens-his-arms-while-running-in-the-flash-comic-cover.jpg" medium="image" />
+    </item>
     <item>
         <title>World War Z Sequel Confirmed: Paramount Sets New Horror Thriller in Development</title>
         <link>https://netcinemanews.live/article?slug=world-war-z-officially-returns-with-new-sequel-in-development</link>
@@ -158,14 +166,6 @@
         <pubDate>Mon, 22 Jun 2026 19:37:22 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/02/steven-spielberg-1.jpg" medium="image" />
-    </item>
-    <item>
-        <title>The Ultimate BoJack Horseman Guide: 30 Must-See Episodes Ranked by IMDb Fans</title>
-        <link>https://netcinemanews.live/article?slug=30-best-bojack-horseman-episodes-ranked-according-to-imdb</link>
-        <guid>https://netcinemanews.live/article?slug=30-best-bojack-horseman-episodes-ranked-according-to-imdb</guid>
-        <pubDate>Mon, 22 Jun 2026 18:32:36 GMT</pubDate>
-        <category>tv reviews</category>
-        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2025/11/bojack-horseman-in-the-view-from-halfway-down.jpg" medium="image" />
     </item>
 </channel>
 </rss>
