@@ -261,6 +261,7 @@ function renderDashboard() {
             <td>${new Date(a.created_at).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</td>
             <td><span class="badge badge-${a.status}">${a.status.charAt(0).toUpperCase()+a.status.slice(1)}</span></td>
             <td style="display:flex;gap:8px;">
+                <button class="btn-action btn-push-article" data-id="${a.id}" style="background-color: #e50914; border-color: #e50914;" title="Send Push Notification">🔔 Push</button>
                 <button class="btn-action btn-edit-article" data-id="${a.id}">Edit</button>
                 <button class="btn-delete btn-del-article" data-id="${a.id}">Delete</button>
             </td>
@@ -269,6 +270,16 @@ function renderDashboard() {
 
     tbody.querySelectorAll('.btn-edit-article').forEach(btn => {
         btn.addEventListener('click', () => editArticle(btn.getAttribute('data-id')));
+    });
+
+    tbody.querySelectorAll('.btn-push-article').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const id = btn.getAttribute('data-id');
+            const art = articles.find(a => a.id == id);
+            if (art && confirm(`Send a push notification to all subscribers for "${art.title}"?`)) {
+                sendOneSignalPush(art);
+            }
+        });
     });
 
     tbody.querySelectorAll('.btn-del-article').forEach(btn => {
@@ -839,3 +850,50 @@ document.addEventListener('click', async function(e) {
 // Init
 // =========================================
 fetchAllData();
+
+// =========================================
+// OneSignal Push Notification Logic
+// =========================================
+const ONESIGNAL_APP_ID = "5fdeebf0-6a83-4e2b-9130-e7de1bf7442b";
+const ONESIGNAL_REST_KEY = "os_v2_app_l7pox5tkqnhcxejq47pbx52efnpewrkouutezinmvrhcnv77b6cvcxhlmb6pf5cndk2a67dfgwzzcuovddukgexl7npvgvmw6omxy5i";
+
+async function sendOneSignalPush(article) {
+    const url = "https://onesignal.com/api/v1/notifications";
+    
+    // Extract snippet for description
+    let rawText = article.content ? article.content.replace(/<[^>]+>/g, '').trim() : "";
+    const desc = rawText.length > 100 ? rawText.substring(0, 100) + "..." : "Read the full article now.";
+    
+    const articleUrl = `https://netcinemanews.live/article.html?slug=${article.slug}`;
+
+    const payload = {
+        app_id: ONESIGNAL_APP_ID,
+        included_segments: ["Subscribed Users"],
+        headings: { "en": article.title },
+        contents: { "en": desc },
+        url: articleUrl,
+        chrome_web_image: article.cover_image || "https://netcinemanews.live/favicon.png"
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Key ${ONESIGNAL_REST_KEY}`
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+        if (response.ok && !result.errors) {
+            showToast("🔔 Push notification sent successfully!");
+        } else {
+            console.error("OneSignal Error:", result);
+            showToast("❌ Error sending push notification.");
+        }
+    } catch (err) {
+        console.error("Push API Error:", err);
+        showToast("❌ Failed to send push notification.");
+    }
+}

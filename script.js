@@ -784,5 +784,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// ==================================================
+// OneSignal Push Notification Integration
+// ==================================================
+(function() {
+    let script = document.createElement('script');
+    script.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';
+    script.defer = true;
+    document.head.appendChild(script);
 
-
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+        OneSignal.init({
+            appId: "5fdeebf0-6a83-4e2b-9130-e7de1bf7442b",
+            notifyButton: {
+                enable: true,
+                size: 'medium',
+                theme: 'default',
+                position: 'bottom-right'
+            },
+            promptOptions: {
+                slidedown: {
+                    prompts: [
+                        {
+                            type: "push",
+                            autoPrompt: true,
+                            text: {
+                                actionMessage: "Get the latest movie news and updates delivered to you!",
+                                acceptButton: "Allow",
+                                cancelButton: "Later"
+                            },
+                            delay: {
+                                pageViews: 1,
+                                timeDelay: 3
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+    });
+})();
