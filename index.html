@@ -44,14 +44,9 @@
       window.OneSignalDeferred = window.OneSignalDeferred || [];
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({ 
-            appId: "5fdeebf0-6a83-4e2b-9130-e7de1bf7442b",
-            notifyButton: {
-                enable: true,
-                size: 'medium',
-                theme: 'default',
-                position: 'bottom-right'
-            }
+            appId: "5fdeebf0-6a83-4e2b-9130-e7de1bf7442b"
         });
+        OneSignal.Slidedown.promptPush();
       });
     </script>
 </head>
