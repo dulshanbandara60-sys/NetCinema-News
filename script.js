@@ -783,20 +783,3 @@ document.addEventListener('DOMContentLoaded', () => {
         initArticlePage();
     }
 });
-
-// ==================================================
-// OneSignal Push Notification Integration
-// ==================================================
-(function() {
-    let script = document.createElement('script');
-    script.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';
-    script.defer = true;
-    document.head.appendChild(script);
-
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-            appId: "5fdeebf0-6a83-4e2b-9130-e7de1bf7442b",
-        });
-    });
-})();
