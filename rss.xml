@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2026 05:31:37 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 06:31:59 GMT</lastBuildDate>
 
+    <item>
+        <title>Exclusive: The Shocking Steve Rogers Statement That's Rocking the Captain America Universe</title>
+        <link>https://netcinemanews.live/article?slug=steve-rogers-just-said-the-5-words-that-no-captain-america-would-ever-say</link>
+        <guid>https://netcinemanews.live/article?slug=steve-rogers-just-said-the-5-words-that-no-captain-america-would-ever-say</guid>
+        <pubDate>Tue, 23 Jun 2026 06:31:58 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/captain-america-steve-rogers.jpg" medium="image" />
+    </item>
     <item>
         <title>80s Kids' Movie Fails: Why Mac and Me, Howard the Duck, and The Garbage Pail Kids Are Still Reviled</title>
         <link>https://netcinemanews.live/article?slug=6-worst-kids-movies-of-the-80s</link>
@@ -158,14 +166,6 @@
         <pubDate>Mon, 22 Jun 2026 12:32:43 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/batman-and-robin.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Toy Story 5 Shatters Disney+ Records, Launching Pixar's Franchise into Streaming Dominance</title>
-        <link>https://netcinemanews.live/article?slug=pixar-s-5-part-fantasy-franchise-is-taking-over-disney-as-new-toy-story-shatters-records</link>
-        <guid>https://netcinemanews.live/article?slug=pixar-s-5-part-fantasy-franchise-is-taking-over-disney-as-new-toy-story-shatters-records</guid>
-        <pubDate>Mon, 22 Jun 2026 11:32:11 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/04/toy-story-5.jpg" medium="image" />
     </item>
 </channel>
 </rss>
