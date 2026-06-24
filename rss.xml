@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 17:31:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 18:37:05 GMT</lastBuildDate>
 
+    <item>
+        <title>From Page to Screen: The Ultimate List of Drama Movies That Transformed Classic Books</title>
+        <link>https://netcinemanews.live/article?slug=10-best-drama-movies-based-on-books</link>
+        <guid>https://netcinemanews.live/article?slug=10-best-drama-movies-based-on-books</guid>
+        <pubDate>Wed, 24 Jun 2026 18:37:04 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/06/atonement-copy.jpg" medium="image" />
+    </item>
     <item>
         <title>Brian Cox Returns as the New York Ripper in Dexter: Resurrection Season 2 – A Career Full-Circle Moment</title>
         <link>https://netcinemanews.live/article?slug=dexter-resurrection-season-2-is-bringing-an-iconic-actor-full-circle</link>
@@ -158,14 +166,6 @@
         <pubDate>Wed, 24 Jun 2026 01:32:19 GMT</pubDate>
         <category>tv reviews</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/02/apple-tv-logo.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Project Hail Mary Rockets to #1 Streaming Spot in Just Five Days – Here’s Why Fans Are Obsessed</title>
-        <link>https://netcinemanews.live/article?slug=in-just-5-days-2026-s-sci-fi-masterpiece-is-already-a-1-streaming-hit</link>
-        <guid>https://netcinemanews.live/article?slug=in-just-5-days-2026-s-sci-fi-masterpiece-is-already-a-1-streaming-hit</guid>
-        <pubDate>Wed, 24 Jun 2026 00:31:23 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/04/project-hail-mary.jpg" medium="image" />
     </item>
 </channel>
 </rss>
