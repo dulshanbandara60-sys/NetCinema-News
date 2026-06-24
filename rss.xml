@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 18:37:05 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 19:33:04 GMT</lastBuildDate>
 
+    <item>
+        <title>Hulu’s Prison Break Reboot Brings Back the Original Stars for a Darker, Grittier Season 1 Revival</title>
+        <link>https://netcinemanews.live/article?slug=original-prison-break-stars-officially-confirmed-for-return-in-hulu-s-reboot</link>
+        <guid>https://netcinemanews.live/article?slug=original-prison-break-stars-officially-confirmed-for-return-in-hulu-s-reboot</guid>
+        <pubDate>Wed, 24 Jun 2026 19:33:04 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/05/prison-break.jpg" medium="image" />
+    </item>
     <item>
         <title>From Page to Screen: The Ultimate List of Drama Movies That Transformed Classic Books</title>
         <link>https://netcinemanews.live/article?slug=10-best-drama-movies-based-on-books</link>
@@ -158,14 +166,6 @@
         <pubDate>Wed, 24 Jun 2026 02:04:56 GMT</pubDate>
         <category>celebs</category>
         <media:content url="https://i.ibb.co/Kp8z9XHP/Article-10.webp" medium="image" />
-    </item>
-    <item>
-        <title>Apple TV+'s Sleeper Hit Sci‑Fi Detective Series Season 2 Lands a Shocking Rotten Tomatoes Score – What It Means for Streaming Trends</title>
-        <link>https://netcinemanews.live/article?slug=apple-tv-s-hit-sci-fi-crime-series-just-broke-a-major-streaming-trend</link>
-        <guid>https://netcinemanews.live/article?slug=apple-tv-s-hit-sci-fi-crime-series-just-broke-a-major-streaming-trend</guid>
-        <pubDate>Wed, 24 Jun 2026 01:32:19 GMT</pubDate>
-        <category>tv reviews</category>
-        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/02/apple-tv-logo.jpg" medium="image" />
     </item>
 </channel>
 </rss>
