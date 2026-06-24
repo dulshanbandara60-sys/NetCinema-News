@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 09:32:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 10:31:29 GMT</lastBuildDate>
 
+    <item>
+        <title>James Bond's Next Chapter: Who Will Truly Be the Ultimate 007?</title>
+        <link>https://netcinemanews.live/article?slug=our-official-new-james-bond-is-the-perfect-007-for-a-new-generation</link>
+        <guid>https://netcinemanews.live/article?slug=our-official-new-james-bond-is-the-perfect-007-for-a-new-generation</guid>
+        <pubDate>Wed, 24 Jun 2026 10:31:28 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/05/daniel-craig-s-james-bond-and-another-007-blurred-behind.jpg" medium="image" />
+    </item>
     <item>
         <title>Robert Downey Jr.'s MCU Classics Arrive on Hulu Ahead of Avengers: Doomsday – A Huge Streaming Bomb?</title>
         <link>https://netcinemanews.live/article?slug=the-biggest-multi-billion-franchise-starter-is-finally-coming-to-hulu-next-week</link>
@@ -158,14 +166,6 @@
         <pubDate>Tue, 23 Jun 2026 16:31:48 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/chapel-close-in-season-4-1.jpg" medium="image" />
-    </item>
-    <item>
-        <title>The Boys' New Series Unveils Homelander's Shocking Past – What You Need to Know</title>
-        <link>https://netcinemanews.live/article?slug=the-boys-new-show-will-change-everything-we-know-about-homelander</link>
-        <guid>https://netcinemanews.live/article?slug=the-boys-new-show-will-change-everything-we-know-about-homelander</guid>
-        <pubDate>Tue, 23 Jun 2026 15:31:34 GMT</pubDate>
-        <category>tv reviews</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/the-boys_rg1ax7.jpg" medium="image" />
     </item>
 </channel>
 </rss>
