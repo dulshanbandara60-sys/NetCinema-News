@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jun 2026 02:31:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 03:32:25 GMT</lastBuildDate>
 
+    <item>
+        <title>One Piece Remake Set to Debut in Less Than a Year, Promising a New Era for the Franchise</title>
+        <link>https://netcinemanews.live/article?slug=it-s-official-one-piece-is-now-less-than-1-year-away-from-its-absolute-peak</link>
+        <guid>https://netcinemanews.live/article?slug=it-s-official-one-piece-is-now-less-than-1-year-away-from-its-absolute-peak</guid>
+        <pubDate>Thu, 25 Jun 2026 03:32:24 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/the-one-piece-featured-image.png" medium="image" />
+    </item>
     <item>
         <title>Superman's Unmatched Strength Redefines Power in New Film Spectacle</title>
         <link>https://netcinemanews.live/article?slug=superman-just-set-a-new-standard-for-his-maximum-strength</link>
@@ -158,14 +166,6 @@
         <pubDate>Wed, 24 Jun 2026 11:32:07 GMT</pubDate>
         <category>tv reviews</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/03/humans-iii-1.jpg" medium="image" />
-    </item>
-    <item>
-        <title>James Bond's Next Chapter: Who Will Truly Be the Ultimate 007?</title>
-        <link>https://netcinemanews.live/article?slug=our-official-new-james-bond-is-the-perfect-007-for-a-new-generation</link>
-        <guid>https://netcinemanews.live/article?slug=our-official-new-james-bond-is-the-perfect-007-for-a-new-generation</guid>
-        <pubDate>Wed, 24 Jun 2026 10:31:28 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/05/daniel-craig-s-james-bond-and-another-007-blurred-behind.jpg" medium="image" />
     </item>
 </channel>
 </rss>
