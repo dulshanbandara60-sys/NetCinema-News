@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jun 2026 09:35:05 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 10:31:52 GMT</lastBuildDate>
 
+    <item>
+        <title>10 Animated Trilogies That Redefined Animation Magic: From Cars to Puss in Boots</title>
+        <link>https://netcinemanews.live/article?slug=10-best-animated-trilogies-ranked</link>
+        <guid>https://netcinemanews.live/article?slug=10-best-animated-trilogies-ranked</guid>
+        <pubDate>Thu, 25 Jun 2026 10:31:51 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/04/puss-in-boots-the-last-wish.jpg" medium="image" />
+    </item>
     <item>
         <title>Dragon Ball Anime Returns with Revolutionary Reverse Spirit Bomb Technique – Fans Can’t Wait!</title>
         <link>https://netcinemanews.live/article?slug=dragon-ball-s-next-anime-will-unlock-the-ultimate-reverse-spirit-bomb</link>
@@ -158,14 +166,6 @@
         <pubDate>Wed, 24 Jun 2026 17:31:46 GMT</pubDate>
         <category>tv reviews</category>
         <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/dexter-resurrection_ooqpsz.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Supergirl’s Rotten Tomatoes Score Plummets Over 30% Below DCU’s Superman – Critics Are Split</title>
-        <link>https://netcinemanews.live/article?slug=supergirl-s-rt-score-is-officially-over-30-lower-than-the-dcu-s-superman</link>
-        <guid>https://netcinemanews.live/article?slug=supergirl-s-rt-score-is-officially-over-30-lower-than-the-dcu-s-superman</guid>
-        <pubDate>Wed, 24 Jun 2026 16:31:52 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/06/supergirl-milly-alcock-ana-nogueira-interview.jpg" medium="image" />
     </item>
 </channel>
 </rss>
