@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jun 2026 09:31:10 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 10:32:04 GMT</lastBuildDate>
 
+    <item>
+        <title>Doctor Who Returns: A Fresh Era Dawns with the Perfect New Face in the TARDIS</title>
+        <link>https://netcinemanews.live/article?slug=doctor-who-officially-starts-a-new-era-with-the-perfect-new-doctor</link>
+        <guid>https://netcinemanews.live/article?slug=doctor-who-officially-starts-a-new-era-with-the-perfect-new-doctor</guid>
+        <pubDate>Sat, 27 Jun 2026 10:32:03 GMT</pubDate>
+        <category>tv reviews</category>
+        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2025/05/doctor-who-the-reality-war-fifteenth-doctor-regeneration-3.jpg" medium="image" />
+    </item>
     <item>
         <title>Fallout’s Beloved Maximus Set for Physical Release in 2027 – First Look at the Upcoming Collectible</title>
         <link>https://netcinemanews.live/article?slug=fallout-maximus-officially-announced-arrives-2027</link>
@@ -158,14 +166,6 @@
         <pubDate>Fri, 26 Jun 2026 14:33:04 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/06/scavengers-reign-1.jpg" medium="image" />
-    </item>
-    <item>
-        <title>Tom Holland’s Next Film Signals a Bold New Chapter – Just Days Before Spider‑Man: Brand New Day</title>
-        <link>https://netcinemanews.live/article?slug=tom-holland-s-new-movie-is-officially-the-start-of-an-era</link>
-        <guid>https://netcinemanews.live/article?slug=tom-holland-s-new-movie-is-officially-the-start-of-an-era</guid>
-        <pubDate>Fri, 26 Jun 2026 13:31:22 GMT</pubDate>
-        <category>movie news</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/tom-holland-as-spider-man-in-brand-new-day-1.jpg" medium="image" />
     </item>
 </channel>
 </rss>
