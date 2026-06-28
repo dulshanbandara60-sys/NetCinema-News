@@ -5,8 +5,16 @@
     <link>https://netcinemanews.live</link>
     <description>The ultimate source for the latest movie reviews, breaking entertainment news, and box office updates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2026 02:31:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2026 03:31:07 GMT</lastBuildDate>
 
+    <item>
+        <title>How Stargate SG-1 Turned a 90s Blockbuster into the Ultimate Sci-Fi TV Empire</title>
+        <link>https://netcinemanews.live/article?slug=star-trek-has-nothing-on-this-sci-fi-series-that-quietly-built-a-massive-tv-universe</link>
+        <guid>https://netcinemanews.live/article?slug=star-trek-has-nothing-on-this-sci-fi-series-that-quietly-built-a-massive-tv-universe</guid>
+        <pubDate>Sun, 28 Jun 2026 03:31:06 GMT</pubDate>
+        <category>movie news</category>
+        <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/01/stargate.jpg" medium="image" />
+    </item>
     <item>
         <title>Black Clover's Epic Fight Lineup: Why the Next Anime Season Is a Must-Watch</title>
         <link>https://netcinemanews.live/article?slug=the-best-fight-in-black-clover-anime-history-is-now-only-4-months-away</link>
@@ -158,14 +166,6 @@
         <pubDate>Sat, 27 Jun 2026 05:33:06 GMT</pubDate>
         <category>movie news</category>
         <media:content url="https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/06/dutton-ranch-rip-wheeler-cole-hauser-1.jpeg" medium="image" />
-    </item>
-    <item>
-        <title>One Piece Chapter 1186 Drops: A Heartbreaking Flashback and Imu Showdown Awaits!</title>
-        <link>https://netcinemanews.live/article?slug=one-piece-chapter-1186-release-date-time</link>
-        <guid>https://netcinemanews.live/article?slug=one-piece-chapter-1186-release-date-time</guid>
-        <pubDate>Sat, 27 Jun 2026 04:33:21 GMT</pubDate>
-        <category>tv reviews</category>
-        <media:content url="https://static0.srcdn.com/wordpress/wp-content/uploads/2026/06/imu-11.jpg" medium="image" />
     </item>
 </channel>
 </rss>
