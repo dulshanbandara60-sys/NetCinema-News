@@ -569,25 +569,45 @@ async function initArticlePage() {
     document.title = `${article.title} - NetCinema News`;
 
     // Canonical
-    const canonicalEl = document.getElementById('canonical-url');
-    if (canonicalEl) canonicalEl.setAttribute('href', articleUrl);
+    let canonicalEl = document.getElementById('canonical-url');
+    if (!canonicalEl) {
+        canonicalEl = document.createElement('link');
+        canonicalEl.rel = 'canonical';
+        canonicalEl.id = 'canonical-url';
+        document.head.appendChild(canonicalEl);
+    }
+    canonicalEl.setAttribute('href', articleUrl);
 
     // OG Tags
-    const ogUrl = document.getElementById('og-url');
+    let ogUrl = document.getElementById('og-url');
+    if (!ogUrl) {
+        ogUrl = document.createElement('meta');
+        ogUrl.setAttribute('property', 'og:url');
+        ogUrl.id = 'og-url';
+        document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute('content', articleUrl);
+
     const ogTitle = document.getElementById('og-title');
     const ogDesc = document.getElementById('og-description');
     const ogImage = document.getElementById('og-image');
-    if (ogUrl) ogUrl.setAttribute('content', articleUrl);
     if (ogTitle) ogTitle.setAttribute('content', article.title);
     if (ogDesc) ogDesc.setAttribute('content', articleDesc);
     if (ogImage) ogImage.setAttribute('content', articleImage);
 
     // Twitter Tags
-    const twUrl = document.getElementById('twitter-url');
+    let twUrl = document.getElementById('twitter-url');
+    if (!twUrl) {
+        twUrl = document.createElement('meta');
+        twUrl.name = 'twitter:url';
+        twUrl.id = 'twitter-url';
+        document.head.appendChild(twUrl);
+    }
+    twUrl.setAttribute('content', articleUrl);
+
     const twTitle = document.getElementById('twitter-title');
     const twDesc = document.getElementById('twitter-description');
     const twImage = document.getElementById('twitter-image');
-    if (twUrl) twUrl.setAttribute('content', articleUrl);
     if (twTitle) twTitle.setAttribute('content', article.title);
     if (twDesc) twDesc.setAttribute('content', articleDesc);
     if (twImage) twImage.setAttribute('content', articleImage);
