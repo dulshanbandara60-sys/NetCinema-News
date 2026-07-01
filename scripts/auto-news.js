@@ -100,7 +100,6 @@ Original Snippet: ${description}
                 },
                 body: JSON.stringify({
                     model: "openrouter/free", 
-                    response_format: { type: "json_object" },
                     messages: [{ role: "user", content: prompt }],
                     temperature: 0.7,
                     max_tokens: 3000
