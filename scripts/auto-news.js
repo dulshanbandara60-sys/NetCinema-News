@@ -90,14 +90,16 @@ Original Snippet: ${description}
 
     for (let attempt = 1; attempt <= retries; attempt++) {
         try {
-            const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${OPENAI_API_KEY}`
+                    "Authorization": `Bearer ${OPENAI_API_KEY}`,
+                    "HTTP-Referer": "https://netcinemanews.live",
+                    "X-Title": "NetCinema News Automation"
                 },
                 body: JSON.stringify({
-                    model: "gpt-4o-mini", 
+                    model: "openrouter/free", 
                     response_format: { type: "json_object" },
                     messages: [{ role: "user", content: prompt }],
                     temperature: 0.7,
