@@ -256,6 +256,7 @@ function renderDashboard() {
 
     tbody.innerHTML = articles.map(a => `
         <tr data-id="${a.id}">
+            <td style="text-align: center;"><input type="checkbox" class="article-cb" value="${a.id}"></td>
             <td>${a.title}</td>
             <td>${a.category}</td>
             <td>${new Date(a.created_at).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</td>
@@ -266,6 +267,28 @@ function renderDashboard() {
             </td>
         </tr>
     `).join('');
+
+    // Checkbox Logic
+    const selectAll = document.getElementById('selectAllArticles');
+    const checkboxes = tbody.querySelectorAll('.article-cb');
+    const bulkDeleteBtn = document.getElementById('btn-bulk-delete');
+
+    const updateBulkBtnVisibility = () => {
+        const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+        bulkDeleteBtn.style.display = anyChecked ? 'inline-block' : 'none';
+    };
+
+    if (selectAll) {
+        selectAll.checked = false;
+        selectAll.onchange = (e) => {
+            checkboxes.forEach(cb => cb.checked = e.target.checked);
+            updateBulkBtnVisibility();
+        };
+    }
+
+    checkboxes.forEach(cb => {
+        cb.onchange = updateBulkBtnVisibility;
+    });
 
     tbody.querySelectorAll('.btn-edit-article').forEach(btn => {
         btn.addEventListener('click', () => editArticle(btn.getAttribute('data-id')));
@@ -285,6 +308,36 @@ function renderDashboard() {
         });
     });
 }
+
+// Bulk Delete Action
+document.addEventListener('DOMContentLoaded', () => {
+    const bulkDeleteBtn = document.getElementById('btn-bulk-delete');
+    if (bulkDeleteBtn) {
+        bulkDeleteBtn.addEventListener('click', async () => {
+            const checkboxes = document.querySelectorAll('.article-cb:checked');
+            if (checkboxes.length === 0) return;
+            
+            if (confirm(`Are you sure you want to delete ${checkboxes.length} selected articles?`)) {
+                bulkDeleteBtn.textContent = 'Deleting...';
+                bulkDeleteBtn.disabled = true;
+                
+                let successCount = 0;
+                for (const cb of checkboxes) {
+                    const { error } = await sb.from('articles').delete().eq('id', cb.value);
+                    if (!error) {
+                        articles = articles.filter(a => a.id != cb.value);
+                        successCount++;
+                    }
+                }
+                
+                bulkDeleteBtn.textContent = 'Delete Selected';
+                bulkDeleteBtn.disabled = false;
+                renderDashboard();
+                showToast(`🗑️ ${successCount} articles deleted`);
+            }
+        });
+    }
+});
 
 // =========================================
 // Article Editor
