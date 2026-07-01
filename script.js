@@ -59,7 +59,13 @@ function formatDate(dateString) {
 
 function getUrlParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
+    let val = urlParams.get(param);
+    
+    // Support Cloudflare SSR clean URLs (/articles/slug)
+    if (param === 'slug' && !val && window.location.pathname.includes('/articles/')) {
+        val = window.location.pathname.split('/articles/')[1].replace('.html', '').replace(/\/$/, '');
+    }
+    return val;
 }
 
 // =========================================
