@@ -185,7 +185,7 @@ async function generateSitemap() {
 
         for (const article of articles) {
             const dateStr = new Date(article.created_at).toISOString().split('T')[0];
-            sitemapContent += `    <url>\n        <loc>https://netcinemanews.live/article?slug=` + article.slug + `</loc>\n        <lastmod>` + dateStr + `</lastmod>\n        <changefreq>monthly</changefreq>\n        <priority>0.7</priority>\n    </url>\n`;
+            sitemapContent += `    <url>\n        <loc>https://netcinemanews.live//articles/` + article.slug + `</loc>\n        <lastmod>` + dateStr + `</lastmod>\n        <changefreq>monthly</changefreq>\n        <priority>0.7</priority>\n    </url>\n`;
         }
 
         sitemapContent += `</urlset>`;
@@ -221,7 +221,7 @@ async function generateRSSFeed() {
 `;
 
     for (const article of articles) {
-        const url = `https://netcinemanews.live/article?slug=${article.slug}`;
+        const url = `https://netcinemanews.live//articles/${article.slug}`;
         const pubDate = new Date(article.created_at).toUTCString();
         const imageUrl = article.cover_image || 'https://netcinemanews.live/favicon.png';
         const safeTitle = article.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -311,7 +311,7 @@ async function run() {
                     console.log(`Successfully published: ${item.title}`);
                     
                     // Ping Google Indexing API
-                    const publicUrl = `https://netcinemanews.live/article?slug=${slug}`;
+                    const publicUrl = `https://netcinemanews.live//articles/${slug}`;
                     await notifyGoogleIndex(publicUrl);
 
                     newArticleImported = true;
