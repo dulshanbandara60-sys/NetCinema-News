@@ -41,6 +41,7 @@ export async function onRequestGet(context) {
         
         // Generate the SSR SEO tags
         const seoTags = `
+            <base href="/">
             <link rel="canonical" href="${fullUrl}" id="canonical-url">
             <meta property="og:url" content="${fullUrl}" id="og-url">
             <meta property="og:title" content="${title} - NetCinema News" id="og-title">
